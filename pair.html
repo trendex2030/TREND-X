@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content=" PAIR CODE">
+  <meta property="og:description" content="Pair-code linker for WhatsApp bot.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/username/botname">
+  <meta property="og:image" content="https://files.catbox.moe/y65ffs.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content=" PAIR CODE">
+  <meta name="twitter:description" content="Pair-code linker for  WhatsApp bot.">
+  <meta name="twitter:image" content="https://files.catbox.moe/y65ffs.jpg">
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #a8dff0, #001f33);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+      font-family: 'Graduate', sans-serif;
+    }
+
+    @keyframes snow {
+      0% { transform: translateY(0px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: snow linear infinite;
+    }
+
+    .snowflake:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+    .snowflake:nth-child(2) { left: 20%; animation-duration: 5s; animation-delay: 1s; }
+    .snowflake:nth-child(3) { left: 30%; animation-duration: 6s; animation-delay: 2s; }
+    .snowflake:nth-child(4) { left: 40%; animation-duration: 7s; animation-delay: 3s; }
+    .snowflake:nth-child(5) { left: 50%; animation-duration: 9s; animation-delay: 4s; }
+    .snowflake:nth-child(6) { left: 60%; animation-duration: 5s; animation-delay: 2s; }
+    .snowflake:nth-child(7) { left: 70%; animation-duration: 6s; animation-delay: 1s; }
+    .snowflake:nth-child(8) { left: 80%; animation-duration: 8s; animation-delay: 0s; }
+    .snowflake:nth-child(9) { left: 90%; animation-duration: 7s; animation-delay: 3s; }
+    .snowflake:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 4s; }
+
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h3 {
+      margin-top: 0;
+      opacity: 0;
+      transform: translateY(-100px);
+      animation: slideIn 2s ease-out forwards, fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .input-container {
+      display: flex;
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 0.3rem;
+      gap: 0.3rem;
+      max-width: 300px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .input-container input {
+      border-radius: 0.8rem 0 0 0.8rem;
+      background: #000000;
+      width: 89%;
+      flex-basis: 75%;
+      padding: 1rem;
+      border: none;
+      border-left: 2px solid #075e54;
+      color: #ecf0f1;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .input-container input:focus {
+      border-left: 2px solid #075e54;
+      outline: none;
+      box-shadow: inset 13px 13px 10px #075e54, inset -13px -13px 10px #2c3e50;
+    }
+
+    .input-container button {
+      flex-basis: 25%;
+      padding: 1rem;
+      background: #25d366;
+      font-weight: 900;
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+      color: white;
+      border: none;
+      width: 100%;
+      border-radius: 0 1rem 1rem 0;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .input-container button:hover {
+      background: #2980b9;
+    }
+
+    #loading-spinner {
+      display: none;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .fa-spinner {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Snowflakes -->
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+
+  <div class="container">
+      
+    <h3>❄️ session name 🪀</h3>
+    
+    <br>
+    <h3> 𝐑𝐞𝐠𝐚𝐫𝐝𝐬 ur name🎗</h3>
+    
+    <p>🔢Enter Your WhatsApp Number with Country Code.</p>
+    <br>
+    <div class="input-container">
+      <input placeholder="263xxxxxx" type="number" id="number" name="">
+      <button id="submit">Code</button>
+    </div>
+    <div id="loading-spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+    <br>
+    <main id="pair"></main>
+  </div>
+
+  <footer>
+    MALVIN KING &copy <span id="currentYear"></span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    let a = document.getElementById("pair");
+    let b = document.getElementById("submit");
+    let c = document.getElementById("number");
+
+    async function Copy() {
+      let text = document.getElementById("copy").innerText;
+      let obj = document.getElementById("copy");
+      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
+      obj.innerText = "✔️ COPIED";
+      obj.style = "color:red;font-weight:bold";
+      obj.size = "5";
+      setTimeout(() => {
+        obj.innerText = text;
+        obj.style = "color:white;font-weight-bold";
+        obj.size = "5";
+      }, 500);
+    }
+
+    b.addEventListener("click", async (e) => {
+      e.preventDefault();
+      if (!c.value) {
+        a.innerHTML = '<a style="color:red;font-weight:bold">❗ Enter your WhatsApp number with country code.</a><br><br>';
+      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
+        a.innerHTML = '<a style="color:red;font-weight:bold">❗ Invalid number format. Please try again.</a><br><br>';
+      } else {
+        const bc = c.value.replace(/[^0-9]/g, "");
+        let bb = "";
+        let bbc = "";
+        const cc = bc.split('');
+        cc.map(a => {
+          bbc += a;
+          if (bbc.length == 3) {
+            bb += " " + a;
+          } else if (bbc.length == 8) {
+            bb += " " + a;
+          } else {
+            bb += a;
+          }
+        });
+        c.type = "text";
+        c.value = "+" + bb;
+        c.style = "color:white;font-size:20px";
+        document.getElementById("loading-spinner").style.display = "block";
+        a.innerHTML = '';
+        let { data } = await axios(`/code?number=${bc}`);
+        let code = data.code || "❗ Service Unavailable";
+        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:white;font-weight:bold">' + code + '</span></font><br><br><br>';
+        document.getElementById("loading-spinner").style.display = "none";
+      }
+    });
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
