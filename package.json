@@ -1,12 +1,12 @@
 {
-  "name": "Botname-MD",
+  "name": "TREND-X",
   "version": "3.0.0",
-  "description": "A WhatsApp Bot Created By YOUR NAME",
+  "description": "A WhatsApp Bot Created By Bravin",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name Botname-MD",
-    "stop": "pm2 stop Botname-MD",
-    "restart": "pm2 restart Botne-MD"
+    "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
+    "stop": "pm2 stop TREND-X",
+    "restart": "pm2 restart TREND-X"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "6.6.0",
