@@ -1,6 +1,6 @@
 {
-  "name": "your Botname",
-  "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ your name ",
+  "name": "TREND-X",
+  "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ Bravin ",
   "logo": "your image url",
   "keywords": ["bot"],
   "success_url": "/",
@@ -92,10 +92,10 @@
     
     }, 
 
-    "BOT_NAME": {
+    "TREND-X": {
       "description": "write hear your name.",
       "required": true,
-      "value": "✦『Botname-MD』✦"
+      "value": "✦『TREND-X』✦"
     }, 
 
     "HEART_REACT": {
