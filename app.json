@@ -1,7 +1,7 @@
 {
   "name": "TREND-X",
   "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ Bravin ",
-  "logo": "your image url",
+  "logo": "https://files.catbox.moe/adymbp.jpg",
   "keywords": ["bot"],
   "success_url": "/",
 
@@ -14,13 +14,13 @@
     },  
     
     "ALIVE_IMG": {
-      "description": "paste your image url if you don't have you can use this public url.",
+      "description": "https://files.catbox.moe/adymbp.jpg.",
       "required": true,
       "value": "your image url"
     }, 
     
     "ALIVE_MSG": {
-      "description": "paste your alive message hear.",
+      "description": "HI TREND-X IS ALIVE.",
       "required": true,
       "value": "HI DEAR IM ONLINE.!!♻️"
     },
