@@ -6,7 +6,7 @@
  You may not sell this script.
  It is supplied in the hope that it may be useful.
  * @project_name : Free Bot script
- * @author : Malvin King <https://github.com/kingmalvn>
+ * @author : Malvin King <https://github.com/trendex2030>
  * @description : A Multi-functional whatsapp bot script.
  * @version 3.0.0
  **/
@@ -48,7 +48,7 @@ const ownerNumber = ['254763211803']
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/sessions/creds.json')) {
 if(!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!')
-const sessdata = config.SESSION_ID.replace("MALVIN-XD~", '');
+const sessdata = config.SESSION_ID.replace("TREND-X~", '');
 const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
