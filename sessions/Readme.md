@@ -6,7 +6,7 @@
  You may not sell this script.
  It is supplied in the hope that it may be useful.
  * @project_name : Free Bot script
- * @author : Malvin King <https://github.com/kingmalvn>
+ * @author : TRENDEX KING<https://github.com/trendex2030>
  * @description : A Multi-functional whatsapp bot script.
  * @version 3.0.0
  **/
