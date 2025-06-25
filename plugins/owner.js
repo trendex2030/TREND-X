@@ -7,7 +7,7 @@ const {runtime} = require('../lib/functions')
 
 
 cmd({
-    pattern: "owner",
+    pattern: "trendex",
     desc: "owner the bot",
     category: "owner",
     react: "👨‍💻",
@@ -19,16 +19,16 @@ try{
 
 let dec = `*👋 Hello ${pushname}*
 
-*👨‍💻Your Botname 👨‍💻*
+*👨‍💻TREND-X👨‍💻*
 
 > *𝗢𝗪𝗡𝗘𝗥 𝗜𝗡𝗙𝗢* 
 
-*⚡Owner name -: your name*
-*⚡Number* -: your number
+*⚡Owner name -: trendex*
+*⚡Number* -: 254763211803
 
  ⚡️◦ https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3
 
-> *Powered by your name*
+> *Powered by trendex*
 `;
 await conn.sendMessage(from,{image:{url:config.MENU_IMG},caption:dec},{quoted:mek});
 
@@ -58,7 +58,7 @@ let dec = `*📍ℝ𝔼ℙ𝕆-𝕃𝕀ℕ𝕂 ❤️‍🔥👇*
 
 👨‍💻◦ https://whatsapp.com/channel/0029Vac8SosLY6d7CAFndv3Z
 
-> *Powered by yourname*
+> *Powered by trendex*
 `;
 await conn.sendMessage(from,{image:{url: config.MENU_IMG},caption:dec},{quoted:mek});
 
@@ -80,7 +80,7 @@ let status = `┌─────────────────────
 ├ ⏰ *Runtime:-* ${runtime(process.uptime())}
 ├ 📟 *Ram usage:-* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 ├ ⚙️ *Platform:-* ${os.hostname()}
-├ 👨‍💻 *Owners:-* your name
+├ 👨‍💻 *Owners:-* trendex
 ├ 🧬 *Version:-* 1.0.0
 └───────────────────────
 
