@@ -4,7 +4,7 @@
   "description": "A WhatsApp Bot Created By trendex",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
+    "start": "npx pm2 start index.js --deep-monitoring --attach --name TREND-X",
     "stop": "pm2 stop TREND-X",
     "restart": "pm2 restart TREND-X"
   },
