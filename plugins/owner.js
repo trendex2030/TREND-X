@@ -19,7 +19,7 @@ try{
 
 let dec = `*👋 Hello ${pushname}*
 
-*👨‍💻Your Botname 👨‍💻*
+*👨‍💻TREND-X 👨‍💻*
 
 > *𝗢𝗪𝗡𝗘𝗥 𝗜𝗡𝗙𝗢* 
 
