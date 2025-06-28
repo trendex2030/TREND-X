@@ -4,9 +4,7 @@
   "description": "A WhatsApp Bot Created By trendex",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
-    "stop": "pm2 stop TREND-X",
-    "restart": "pm2 restart TREND-X"
+    "start": "node index.js"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "6.6.0",
@@ -15,7 +13,6 @@
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@vitalets/google-translate-api": "^9.2.0",
     "pino": "^7.0.5",
-    "pm2": "^5.2.0",
     "express": "latest",
     "axios": "^1.2.5",
     "crypto-digest-sync": "^1.0.0",
