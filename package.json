@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "pm2 start index.js"
   },
   "engines": {
     "node": "20.x",
