@@ -1,7 +1,7 @@
 {
   "name": "TREND-X",
   "description": "Advanced WhatsApp Bot by Trendex",
-  "repository": "https://github.com/trendex/TREND-X",
+  "repository": "https://github.com/trendex2030/TREND-X",
   "logo": "https://i.imgur.com/placeholder.png",
   "keywords": ["whatsapp", "bot", "baileys", "TREND-X"],
   "buildpacks": [
