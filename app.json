@@ -1,115 +1,24 @@
 {
   "name": "TREND-X",
-  "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ Bravin ",
-  "logo": "https://files.catbox.moe/adymbp.jpg",
-  "keywords": ["bot"],
-  "success_url": "/",
-
-    "stack": "container",
-  "env": {
-    "SESSION_ID": {
-      "description": "Put the session-id here.",
-      "required": true,
-      "value": ""
-    },  
-    
-    "ALIVE_IMG": {
-      "description": "https://files.catbox.moe/adymbp.jpg.",
-      "required": true,
-      "value": "your image url"
-    }, 
-    
-    "ALIVE_MSG": {
-      "description": "HI TREND-X IS ALIVE.",
-      "required": true,
-      "value": "HI DEAR IM ONLINE.!!♻️"
-    },
-    
-    "PREFIX": {
-      "description": "paste your bot prefix note! Don't apply null prefix.",
-      "required": true,
-      "value": "."
-    },
-    
-    "MODE": {
-      "description": "select your bot work type public-private-inbox-group.",
-      "required": true,
-      "value": "public"
-    }, 
-
-    "AUTO_VOICE": {
-      "description": "Make it true if you want bot auto voice.",
-      "required": true,
-      "value": "true"
-    }, 
-
-    "AUTO_REPLY": {
-      "description": "Make it true if you want bot auto reply.",
-      "required": true,
-      "value": "true"
-    }, 
-
-    "AUTO_STICKER": {
-      "description": "Make it true if you want bot auto sticker.",
-      "required": true,
-      "value": "false"
-    }, 
-
-    "AUTO_READ_STATUS": {
-      "description": "Make it true if you want bot auto auto_read_status.",
-      "required": true,
-      "value": "true"
-    }, 
-
-    "ANTI_LINK": {
-      "description": "Make it true if you want bot auto remove group link.",
-      "required": true,
-      "value": "true"
-    },
-
-    "ANTI_BAD": {
-      "description": "Make it true if you want bot auto delete bad words from group example xxx porn etc.",
-      "required": true,
-      "value": "false"
-    }, 
-
-    "FAKE_RECORDING": {
-      "description": "Make it true if you want bot fake record.",
-      "required": true,
-      "value": "true"
-    },
-
-    "AUTO_REACT": {
-      "description": "Make it true if you want bot AutoReact.",
-      "required": false,
-      "value": "false"
-    },
-
-    "OWNER_REACT": {
-      "description": "Make it true if you want bot OwnerReact.",
-      "required": false,
-      "value": "false"
-    
-    }, 
-
-    "TREND-X": {
-      "description": "write hear your name.",
-      "required": true,
-      "value": "✦『TREND-X』✦"
-    }, 
-
-    "HEART_REACT": {
-      "description": "Make it true if you want bot only heart ♥️ emjois reaction .",
-      "required": true,
-      "value": "false"
+  "description": "Advanced WhatsApp Bot by Trendex",
+  "repository": "https://github.com/trendex/TREND-X",
+  "logo": "https://i.imgur.com/placeholder.png",
+  "keywords": ["whatsapp", "bot", "baileys", "TREND-X"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
     }
-
-},
-
-     "buildpacks": [
-        {
-            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
-        }
-     ],
-  "stack": "heroku-24"
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    }
+  }
 }
