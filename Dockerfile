@@ -1,12 +1,7 @@
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
+FROM node:lts-buster
+RUN git clone https://github.com/trendex2030/TREND-X/root/ikmalvin
+WORKDIR /root/ikmalvin
+RUN npm install && npm install -g pm2 || yarn install --network-concurrency 1
 COPY . .
-
-EXPOSE 3000
-
+EXPOSE 9090
 CMD ["npm", "start"]
