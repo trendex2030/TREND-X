@@ -1,1 +1,1 @@
-upload your credit.json file here
+upload your creds.json file here
