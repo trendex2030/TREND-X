@@ -1,1 +1,1 @@
-TRENDEX 
+trendex
