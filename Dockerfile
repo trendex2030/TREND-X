@@ -1,5 +1,5 @@
 FROM node:lts-buster
-RUN git clone https://github.com/trendex2030/TREND-X/root/ikmalvin
+RUN git clone https://github.com/trendex2030/TREND-X/root/XdKing2
 WORKDIR /root/XdKing2
 RUN npm install && npm install -g pm2 || yarn install --network-concurrency 1
 COPY . .
