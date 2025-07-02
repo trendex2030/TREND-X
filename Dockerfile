@@ -1,7 +1,7 @@
 FROM node:lts-buster
-RUN git clone https://github.com/trendex2030/TREND-X
 WORKDIR /app
-RUN npm install && npm install -g pm2 || yarn install --network-concurrency 1
+COPY package*.json ./
+RUN npm install && npm install -g qrcode-terminal pm2
 COPY . .
-EXPOSE 9090
+EXPOSE 3000
 CMD ["npm", "start"]
