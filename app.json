@@ -1,115 +1,97 @@
 {
   "name": "TREND-X",
-  "description": "ᴊᴀᴠᴀsᴄʀɪᴘᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ trendex ",
-  "logo": "your image url",
-  "keywords": ["bot"],
+  "description": "JavaScript WhatsApp Bot Created by Trendex",
+  "logo": "https://files.catbox.moe/adymbp.jpg", 
+  "keywords": ["bot", "whatsapp", "trendex"],
   "success_url": "/",
+  "stack": "heroku-24",
 
-    "stack": "container",
   "env": {
     "SESSION_ID": {
-      "description": "Put the session-id here.",
+      "description": "Put your session ID here.",
       "required": true,
       "value": ""
-    },  
-    
+    },
     "ALIVE_IMG": {
-      "description": "paste your image url if you don't have you can use this public url.",
+      "description": "Paste your image URL here.",
       "required": true,
-      "value": "your image url"
-    }, 
-    
+      "value": "your-image-url"
+    },
     "ALIVE_MSG": {
-      "description": "paste your alive message hear.",
+      "description": "The message sent when bot is alive.",
       "required": true,
       "value": "HI DEAR IM ONLINE.!!♻️"
     },
-    
     "PREFIX": {
-      "description": "paste your bot prefix note! Don't apply null prefix.",
+      "description": "Bot command prefix. Don't leave it blank.",
       "required": true,
       "value": "."
     },
-    
     "MODE": {
-      "description": "select your bot work type public-private-inbox-group.",
+      "description": "Bot operation mode: public, private, inbox, group.",
       "required": true,
       "value": "public"
-    }, 
-
+    },
     "AUTO_VOICE": {
-      "description": "Make it true if you want bot auto voice.",
+      "description": "Enable auto voice message (true/false).",
       "required": true,
       "value": "true"
-    }, 
-
+    },
     "AUTO_REPLY": {
-      "description": "Make it true if you want bot auto reply.",
+      "description": "Enable auto reply (true/false).",
       "required": true,
       "value": "true"
-    }, 
-
+    },
     "AUTO_STICKER": {
-      "description": "Make it true if you want bot auto sticker.",
+      "description": "Enable auto sticker response (true/false).",
       "required": true,
       "value": "false"
-    }, 
-
+    },
     "AUTO_READ_STATUS": {
-      "description": "Make it true if you want bot auto auto_read_status.",
+      "description": "Enable auto read status updates (true/false).",
       "required": true,
       "value": "true"
-    }, 
-
+    },
     "ANTI_LINK": {
-      "description": "Make it true if you want bot auto remove group link.",
+      "description": "Enable group anti-link filter (true/false).",
       "required": true,
       "value": "true"
     },
-
     "ANTI_BAD": {
-      "description": "Make it true if you want bot auto delete bad words from group example xxx porn etc.",
+      "description": "Enable group bad word filter (true/false).",
       "required": true,
       "value": "false"
-    }, 
-
+    },
     "FAKE_RECORDING": {
-      "description": "Make it true if you want bot fake record.",
+      "description": "Enable fake recording status (true/false).",
       "required": true,
       "value": "true"
     },
-
     "AUTO_REACT": {
-      "description": "Make it true if you want bot AutoReact.",
+      "description": "Enable auto reactions (true/false).",
       "required": false,
       "value": "false"
     },
-
     "OWNER_REACT": {
-      "description": "Make it true if you want bot OwnerReact.",
+      "description": "Enable reactions to owner messages (true/false).",
       "required": false,
       "value": "false"
-    
-    }, 
-
+    },
     "BOT_NAME": {
-      "description": "write hear your name.",
+      "description": "Bot display name.",
       "required": true,
-      "value": "✦『TREND-X 』✦"
-    }, 
-
+      "value": "✦『TREND-X』✦"
+    },
     "HEART_REACT": {
-      "description": "Make it true if you want bot only heart ♥️ emjois reaction .",
+      "description": "Enable heart emoji reactions only (true/false).",
       "required": true,
       "value": "false"
     }
+  },
 
-},
-
-     "buildpacks": [
-        {
-            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
-        }
-     ],
-  "stack": "heroku-24"
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
 }
