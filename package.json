@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
-    "stop": "pm2 stop TREND-X",
-    "restart": "pm2 restart TREND-X"
+    "node": "20.19.2",
+    "npm": "10.8.2"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "6.6.0",
+    "@whiskeysockets/baileys": "npm:baileys@6.7.18",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@dark-yasiya/yt-dl.js": "1.0.5",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
