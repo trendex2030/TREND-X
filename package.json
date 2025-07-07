@@ -6,7 +6,7 @@
   "description": "A WhatsApp Bot Created By TRENDEX OLTON",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"",
+    "start": "node index.js"
     "stop": "pm2 stop TREND-X",
     "restart": "pm2 restart TREND-X"
   },
