@@ -1,97 +1,58 @@
 {
   "name": "TREND-X",
-  "description": "JavaScript WhatsApp Bot Created by Trendex",
-  "logo": "https://files.catbox.moe/adymbp.jpg", 
-  "keywords": ["bot", "whatsapp", "trendex"],
+  "description": "Javascript WhatsApp bot made by ᴍᴀʟᴠɪɴ ᴛᴇᴄʜ",
+  "logo": "https://files.catbox.moe/qumhu4.jpg",
+  "keywords": ["TREND-X","TREND-X"],
   "success_url": "/",
-  "stack": "heroku-24",
 
+    "stack": "container",
   "env": {
     "SESSION_ID": {
-      "description": "Put your session ID here.",
+      "description": "Must Start with 'TREND-X~'",
       "required": true,
       "value": ""
     },
-    "ALIVE_IMG": {
-      "description": "Paste your image URL here.",
-      "required": true,
-      "value": "your-image-url"
-    },
-    "ALIVE_MSG": {
-      "description": "The message sent when bot is alive.",
-      "required": true,
-      "value": "HI DEAR IM ONLINE.!!♻️"
-    },
+      "BOT_NAME": {
+        "description": "write here your bot name.",
+        "required": true,
+        "value": "TREND-X"      
+    },  
+    "MODE": {
+      "description": "Set private/public/inbox/groups",
+      "required": false,
+      "value": "public"
+     },
+   
     "PREFIX": {
-      "description": "Bot command prefix. Don't leave it blank.",
+      "description": "Your Bot Prefix (default: .) You can put your own custom prefix",
       "required": true,
       "value": "."
     },
-    "MODE": {
-      "description": "Bot operation mode: public, private, inbox, group.",
+    
+    "OWNER_NAME": {
+      "description": "Put Owner Name Here",
       "required": true,
-      "value": "public"
+      "value": "TRENDEX OLTON"
     },
-    "AUTO_VOICE": {
-      "description": "Enable auto voice message (true/false).",
+    "OWNER_NUMBER": {
+      "description": "Put only one Owner Number Here",
       "required": true,
-      "value": "true"
+      "value": "254110081982"
     },
-    "AUTO_REPLY": {
-      "description": "Enable auto reply (true/false).",
+    
+    "PRESENCE": {
+      "description": "Put online/typing/recording/unavailable",
       "required": true,
-      "value": "true"
-    },
-    "AUTO_STICKER": {
-      "description": "Enable auto sticker response (true/false).",
-      "required": true,
-      "value": "false"
-    },
-    "AUTO_READ_STATUS": {
-      "description": "Enable auto read status updates (true/false).",
-      "required": true,
-      "value": "true"
-    },
-    "ANTI_LINK": {
-      "description": "Enable group anti-link filter (true/false).",
-      "required": true,
-      "value": "true"
-    },
-    "ANTI_BAD": {
-      "description": "Enable group bad word filter (true/false).",
-      "required": true,
-      "value": "false"
-    },
-    "FAKE_RECORDING": {
-      "description": "Enable fake recording status (true/false).",
-      "required": true,
-      "value": "true"
-    },
-    "AUTO_REACT": {
-      "description": "Enable auto reactions (true/false).",
-      "required": false,
-      "value": "false"
-    },
-    "OWNER_REACT": {
-      "description": "Enable reactions to owner messages (true/false).",
-      "required": false,
-      "value": "false"
-    },
-    "BOT_NAME": {
-      "description": "Bot display name.",
-      "required": true,
-      "value": "✦『TREND-X』✦"
-    },
-    "HEART_REACT": {
-      "description": "Enable heart emoji reactions only (true/false).",
-      "required": true,
-      "value": "false"
+      "value": "online"
     }
-  },
 
-  "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
-    }
-  ]
+},
+
+     "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+        }
+     ],
+  "stack": "heroku-24"
 }
+  
