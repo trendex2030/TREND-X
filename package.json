@@ -6,9 +6,9 @@
   "description": "A WhatsApp Bot Created By TRENDEX OLTON",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name lite",
-    "stop": "pm2 stop lite",
-    "restart": "pm2 restart lite"
+    "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
+    "stop": "pm2 stop TREND-X",
+    "restart": "pm2 restart TREND-X"
   },
   "dependencies": {
        "@whiskeysockets/baileys": "npm:baileys-pro@latest",
