@@ -80,15 +80,7 @@ if (!fs.existsSync(__dirname + '/sessions/creds.json')) {
 
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send("TREND-X Bot is running!");
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 3000
 
 let conn // ✅ GLOBAL conn declaration
 
