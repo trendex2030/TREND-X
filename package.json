@@ -6,9 +6,9 @@
   "description": "A WhatsApp Bot Created By Trendex King",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name trend",
-    "stop": "pm2 stop trend",
-    "restart": "pm2 restart trend"
+    "start": "pm2 start index.js --deep-monitoring --attach --name trend-x",
+    "stop": "pm2 stop trend-x",
+    "restart": "pm2 restart trend-x"
   },
   "dependencies": {
        "@whiskeysockets/baileys": "npm:baileys-pro@latest",
