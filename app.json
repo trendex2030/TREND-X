@@ -2,56 +2,65 @@
   "name": "TREND-X",
   "description": "Javascript WhatsApp bot made by TRENDEX KING",
   "logo": "https://files.catbox.moe/qumhu4.jpg",
-  "keywords": ["MALVIN-XD","TREND-X"],
+  "repository": "https://github.com/trendex2030/TREND-X",
+  "keywords": ["MALVIN-XD", "TREND-X", "WhatsApp Bot", "Baileys"],
   "success_url": "/",
-
+  "stack": "heroku-24",
   "env": {
     "SESSION_ID": {
       "description": "Must Start with 'trend-x~'",
       "required": true,
       "value": ""
     },
-      "BOT_NAME": {
-        "description": "write here your bot name.",
-        "required": true,
-        "value": "TREND-X"      
-    },  
+    "BOT_NAME": {
+      "description": "Write your bot name.",
+      "required": true,
+      "value": "TREND-X"
+    },
     "MODE": {
       "description": "Set private/public/inbox/groups",
       "required": false,
       "value": "public"
-     },
-   
+    },
     "PREFIX": {
-      "description": "Your Bot Prefix (default: .) You can put your own custom prefix",
+      "description": "Your Bot Prefix (default: .)",
       "required": true,
       "value": "."
     },
-    
     "OWNER_NAME": {
       "description": "Put Owner Name Here",
       "required": true,
-      "value": "TRENDEX ᴋɪɴɢ"
+      "value": "TRENDEX KING"
     },
     "OWNER_NUMBER": {
       "description": "Put only one Owner Number Here",
       "required": true,
       "value": "254110081982"
     },
-    
     "PRESENCE": {
       "description": "Put online/typing/recording/unavailable",
       "required": true,
       "value": "online"
+    },
+    "AUTO_STATUS_SEEN": {
+      "description": "Auto status seen (true or false)",
+      "required": false,
+      "value": "true"
+    },
+    "AUTO_STATUS_REPLY": {
+      "description": "Auto status reply (true or false)",
+      "required": false,
+      "value": "false"
+    },
+    "WELCOME": {
+      "description": "Enable welcome/goodbye messages (true or false)",
+      "required": false,
+      "value": "true"
     }
-
-},
-
-     "buildpacks": [
-        {
-            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
-        }
-     ],
-  "stack": "heroku-24"
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+    }
+  ]
 }
-  
