@@ -5,7 +5,6 @@
   "keywords": ["MALVIN-XD","TREND-X"],
   "success_url": "/",
 
-    "stack": "container",
   "env": {
     "SESSION_ID": {
       "description": "Must Start with 'trend-x~'",
