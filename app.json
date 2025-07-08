@@ -8,7 +8,7 @@
     "stack": "container",
   "env": {
     "SESSION_ID": {
-      "description": "Must Start with 'lite~'",
+      "description": "Must Start with 'trend-x~'",
       "required": true,
       "value": ""
     },
