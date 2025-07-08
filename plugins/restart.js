@@ -1,9 +1,9 @@
-const { lite } = require("../lite");  
+const { lite } = require("../trend");  
 const { sleep } = require("../lib/functions");  
 
 lite({  
     pattern: "restart",  
-    desc: "Restart Lite xd",  
+    desc: "Restart trend x",  
     category: "owner",  
     filename: __filename  
 },  
