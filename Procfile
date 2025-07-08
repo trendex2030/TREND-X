@@ -1,1 +1,1 @@
-web: node index.js
+web: pm2-runtime index.js --name trend-x
