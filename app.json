@@ -1,6 +1,6 @@
 {
   "name": "TREND-X",
-  "description": "Javascript WhatsApp bot made by ᴍᴀʟᴠɪɴ ᴛᴇᴄʜ",
+  "description": "Javascript WhatsApp bot made by TRENDEX KING",
   "logo": "https://files.catbox.moe/qumhu4.jpg",
   "keywords": ["MALVIN-XD","TREND-X"],
   "success_url": "/",
@@ -15,7 +15,7 @@
       "BOT_NAME": {
         "description": "write here your bot name.",
         "required": true,
-        "value": "ʟɪᴛᴇ-xᴅ"      
+        "value": "TREND-X"      
     },  
     "MODE": {
       "description": "Set private/public/inbox/groups",
