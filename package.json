@@ -3,12 +3,12 @@
 {
   "name": "TREND-X",
   "version": "0.0.5",
-  "description": "A WhatsApp Bot Created By Malvin King",
+  "description": "A WhatsApp Bot Created By TRENDEX King",
   "main": "index.js",
   "scripts": {
-    "start": "pm2-runtime index.js --deep-monitoring --attach --name TREND-X",
-    "stop": "pm2 stop TREND-X",
-    "restart": "pm2 restart TREND-X"
+    "start": "pm2 start index.js --deep-monitoring --attach --name trend-x",
+    "stop": "pm2 stop trend-x",
+    "restart": "pm2 restart trend-x"
   },
   "dependencies": {
        "@whiskeysockets/baileys": "npm:baileys-pro@latest",
@@ -18,7 +18,7 @@
     "@vitalets/google-translate-api": "^9.2.0",
     "@dark-yasiya/scrap":"1.0.1",    
     "pino": "^7.0.5",
-    "pm2": "^5.3.0",
+    "pm2": "^6.0.5",
     "util": "^0.12.4",
     "jimp": "^0.16.1",
     "express": "latest",
