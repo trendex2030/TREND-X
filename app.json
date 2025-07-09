@@ -1,6 +1,6 @@
 {
-  "name": "LITE-XD",
-  "description": "Javascript WhatsApp bot made by ᴍᴀʟᴠɪɴ ᴛᴇᴄʜ",
+  "name": "TREND-X",
+  "description": "Javascript WhatsApp bot made by TRENDEX KING",
   "logo": "https://files.catbox.moe/qumhu4.jpg",
   "keywords": ["MALVIN-XD","LITE-XD"],
   "success_url": "/",
@@ -8,14 +8,14 @@
     "stack": "container",
   "env": {
     "SESSION_ID": {
-      "description": "Must Start with 'lite~'",
+      "description": "Must Start with 'trend-x~'",
       "required": true,
       "value": ""
     },
       "BOT_NAME": {
         "description": "write here your bot name.",
         "required": true,
-        "value": "ʟɪᴛᴇ-xᴅ"      
+        "value": "TREND-X"      
     },  
     "MODE": {
       "description": "Set private/public/inbox/groups",
@@ -32,12 +32,12 @@
     "OWNER_NAME": {
       "description": "Put Owner Name Here",
       "required": true,
-      "value": "ᴍᴀʟᴠɪɴ ᴋɪɴɢ"
+      "value": ""
     },
     "OWNER_NUMBER": {
       "description": "Put only one Owner Number Here",
       "required": true,
-      "value": "263780166288"
+      "value": ""
     },
     
     "PRESENCE": {
