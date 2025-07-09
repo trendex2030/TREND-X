@@ -6,7 +6,7 @@
   "description": "A WhatsApp Bot Created By Malvin King",
   "main": "index.js",
   "scripts": {
-    "start": "pm2-runtime index.js --attach",
+    "start": "pm2-runtime index.js --deep-monitoring --attach --name TREND-X",
     "stop": "pm2 stop TREND-X",
     "restart": "pm2 restart TREND-X"
   },
