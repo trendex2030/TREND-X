@@ -811,7 +811,7 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
   app.get("/", (req, res) => {
   res.send("TREND-X STARTED ✅");
   });
-  app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
+  app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`);
   setTimeout(() => {
   connectToWA()
   }, 4000);
