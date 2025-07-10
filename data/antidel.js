@@ -52,7 +52,7 @@ async function initializeAntiDeleteSettings() {
     } catch (error) {
         console.error('Error initializing anti-delete settings:', error);
         // If table doesn't exist at all, create it
-        if (error.original && error.original.code === 'SQLITE_ERROR' && error.original.message.includes('no such table')) {
+        if (error.original && error.original.code === 'SQlite_ERROR' && error.original.message.includes('no such table')) {
             await AntiDelDB.sync();
             await AntiDelDB.create({ id: 1, status: config.ANTI_DELETE || false });
             isInitialized = true;
