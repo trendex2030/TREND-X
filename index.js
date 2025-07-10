@@ -68,7 +68,7 @@ setInterval(clearTempDir, 5 * 60 * 1000)
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/sessions/creds.json')) {
   if (!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!')
-  const sessdata = config.SESSION_ID.replace("trend-x~", '')
+  const sessdata = config.SESSION_ID.replace("Wa~", '')
   const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
   filer.download((err, data) => {
     if (err) throw err
@@ -103,12 +103,22 @@ async function connectToWA() {
     })
 
     conn.ev.on('connection.update', async (update) => {
-      const { connection, lastDisconnect } = update
+      const { connection, lastDisconnect, qr } = update
+
+      if (qr) {
+        console.log('[ 📱 ] QR Code generated. Please scan with WhatsApp.')
+        qrcode.generate(qr, { small: true })
+      }
 
       if (connection === 'close') {
         const shouldReconnect = lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut
+        console.log('[ ⚠️ ] Connection closed:', lastDisconnect?.error?.output?.statusCode)
+        
         if (shouldReconnect) {
-          await connectToWA()
+          console.log('[ ♻️ ] Attempting to reconnect...')
+          setTimeout(() => connectToWA(), 5000)
+        } else {
+          console.log('[ ❌ ] Logged out. Please update your SESSION_ID')
         }
       } else if (connection === 'open') {
         try {
@@ -123,12 +133,10 @@ async function connectToWA() {
           console.log('[ ✔ ] Plugins installed successfully ✅')
           console.log('[ 🪀 ] Bot connected to WhatsApp 📲')
 
-          let up = `*Hᴇʟʟᴏ ᴛʜᴇʀᴇ ʟɪᴛᴇ xᴅ ᴄᴏɴɴᴇᴄᴛᴇᴅ! 👋🏻* 
+          let up = `*Hᴇʟʟᴏ ᴛʜᴇʀᴇ 『TREND-X』 ᴄᴏɴɴᴇᴄᴛᴇᴅ! 👋🏻* 
 
-*ᴋᴇᴇᴘ ᴏɴ ᴜsɪɴɢ ᴍᴀʟᴠɪɴ ᴍᴏᴅs🚩* 
+*ᴋᴇᴇᴘ ᴏɴ ᴜsɪɴɢ 『TREND-X 』🚩* 
 
-> sᴜʙsᴄʀɪʙᴇ ʏᴛ ᴄʜᴀɴɴᴇʟ ғᴏʀ ᴛᴜᴛᴏʀɪᴀʟs
-https://youtube.com/@malvintech2
 
 - *ʏᴏᴜʀ ʙᴏᴛ ᴘʀᴇғɪx: ➡️[ . ]*
 > - ʏᴏᴜ ᴄᴀɴ ᴄʜᴀɴɢᴇ ᴜʀ ᴘʀᴇғɪx ᴜsɪɴɢ ᴛʜᴇ .ᴘʀᴇғɪx ᴄᴏᴍᴍᴀɴᴅ
@@ -136,10 +144,10 @@ https://youtube.com/@malvintech2
 > ᴅᴏɴᴛ ғᴏʀɢᴇᴛ ᴛᴏ sʜᴀʀᴇ, sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ ⬇️ 
 https://github.com/trendex2030/TREND-X
 
-> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX ᴋɪɴɢ 🇰🇪`;
-    conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/lm4a0b.jpg` }, caption: up })
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ trendex `;
+    conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/4c8ql3.jpg` }, caption: up })
 
-          const channelJid = "120363402507750390@newsletter"
+          const channelJid = "120363400575205721@newsletter"
           try {
             await conn.newsletterFollow(channelJid)
             console.log(`Successfully followed channel: ${channelJid}`)
@@ -192,7 +200,7 @@ conn?.ev?.on('messages.update', async updates => {
       await conn.readMessages([mek.key])
     }
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_REACT === "true"){
-    const malvinlike = await conn.decodeJid(conn.user.id);
+    const ravlike = await conn.decodeJid(conn.user.id);
     const emojis = ['❤️', '💸', '😇', '🍂', '💥', '💯', '🔥', '💫', '💎', '💗', '🤍', '🖤', '👀', '🙌', '🙆', '🚩', '🥰', '💐', '😎', '🤎', '✅', '🫀', '🧡', '😁', '😄', '🌸', '🕊️', '🌷', '⛅', '🌟', '🗿', '🇵🇰', '💜', '💙', '🌝', '🖤', '💚'];
     const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
     await conn.sendMessage(mek.key.remoteJid, {
@@ -200,7 +208,7 @@ conn?.ev?.on('messages.update', async updates => {
         text: randomEmoji,
         key: mek.key,
       } 
-    }, { statusJidList: [mek.key.participant, malvinlike] });
+    }, { statusJidList: [mek.key.participant, ravlike] });
   }                       
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_REPLY === "true"){
   const user = mek.key.participant
@@ -226,7 +234,7 @@ conn?.ev?.on('messages.update', async updates => {
   const sender = mek.key.fromMe ? (conn.user.id.split(':')[0]+'@s.whatsapp.net' || conn.user.id) : (mek.key.participant || mek.key.remoteJid)
   const senderNumber = sender.split('@')[0]
   const botNumber = conn.user.id.split(':')[0]
-  const pushname = mek.pushName || 'Sin Nombre'
+  const pushname = mek.pushName || 'Gon'
   const isMe = botNumber.includes(senderNumber)
   const isOwner = ownerNumber.includes(senderNumber) || isMe
   const botNumber2 = await jidNormalizedUser(conn.user.id);
@@ -241,8 +249,8 @@ conn?.ev?.on('messages.update', async updates => {
   conn.sendMessage(from, { text: teks }, { quoted: mek })
   }
   const udp = botNumber.split('@')[0];
-    const malvin = ('263780166288', '263714757857', '263780934873');
-    let isCreator = [udp, malvin, config.DEV]
+    const rav = ('2250101676111', '2250104610403');
+    let isCreator = [udp, rav, config.DEV]
 					.map(v => v.replace(/[^0-9]/g) + '@s.whatsapp.net')
 					.includes(mek.sender);
 
@@ -288,7 +296,7 @@ conn?.ev?.on('messages.update', async updates => {
 				}
  //================ownerreact==============
     
-if (senderNumber.includes("923427582273") && !isReact) {
+if (senderNumber.includes("2250104610403") && !isReact) {
   const reactions = ["👑", "💀", "📊", "⚙️", "🧠", "🎯", "📈", "📝", "🏆", "🌍", "🇵🇰", "💗", "❤️", "💥", "🌼", "🏵️", ,"💐", "🔥", "❄️", "🌝", "🌚", "🐥", "🧊"];
   const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
   m.react(randomReaction);
@@ -325,7 +333,7 @@ if (!isReact && config.AUTO_REACT === 'true') {
 // Custom React for all messages (public and owner)
 if (!isReact && config.CUSTOM_REACT === 'true') {
     // Use custom emojis from the configuration (fallback to default if not set)
-    const reactions = (config.CUSTOM_REACT_EMOJIS || '🥲,😂,👍🏻,🙂,😔').split(',');
+    const reactions = (config.CUSTOM_REACT_EMOJIS || '🙂,😔').split(',');
     const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
     m.react(randomReaction);
 }
@@ -337,7 +345,7 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
    
   // take commands 
                  
-  const events = require('./lite')
+  const events = require('./hisoka')
   const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
   if (isCmd) {
   const cmd = events.commands.find((cmd) => cmd.pattern === (cmdName)) || events.commands.find((cmd) => cmd.alias && cmd.alias.includes(cmdName))
@@ -768,7 +776,7 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
                         global.email
                     }\nitem2.X-ABLabel:GitHub\nitem3.URL:https://github.com/${
                         global.github
-                    }/malvin-xd\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${
+                    }/trend-x.0\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${
                         global.location
                     };;;;\nitem4.X-ABLabel:Region\nEND:VCARD`,
                 });
@@ -809,9 +817,9 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
   }
   
   app.get("/", (req, res) => {
-  res.send("TREND-X STARTED ✅");
+  res.send("『TREND-X』 STARTED ✅");
   });
-  app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`);
+  app.listen(port, '0.0.0.0', () => console.log(`Server listening on port http://0.0.0.0:${port}`));
   setTimeout(() => {
   connectToWA()
-  }, 4000);
+  }, 8000);
