@@ -462,6 +462,4 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
                     return conn.sendMessage(jid, { document: await getBuffer(url), mimetype: 'application/pdf', caption: caption, ...options }, { quoted: quoted, ...options })
                   }
                   if (mime.split("/")[0] === "video") {
-                    return conn.sendMessage(jid, { video: await getBuffer(url), caption: caption, ...options }, { quoted: quoted, ...options })
-                  }
-                  if (mime.split();
+                    return conn.sendMessage(jid, { video: await getBuffer(url), caption: caption, ...options }, { quoted: quoted, ...options });
