@@ -21,7 +21,6 @@ const axios = require('axios');
 const path = require('path');
 const FileType = require('file-type');
 const { getBuffer } = require('./lib/functions');
-const config = require('./config');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
