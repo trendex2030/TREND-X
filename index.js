@@ -1,4 +1,4 @@
-// index.js — Cleaned and finalized WhatsApp bot entry point using Baileys
+// index.js — TREND-X WhatsApp bot entry point using Baileys
 
 const {
   default: makeWASocket,
@@ -50,7 +50,8 @@ async function connectToWA() {
       const shouldReconnect = code !== DisconnectReason.loggedOut;
 
       if (shouldReconnect) {
-        console.log("🔁 Reconnecting...");
+        console.log("🔁 Reconnecting in 2 seconds...");
+        await new Promise(res => setTimeout(res, 2000));
         connectToWA();
       } else {
         console.log("❌ Logged out — please scan again");
@@ -69,13 +70,21 @@ async function connectToWA() {
 
   sock.ev.on('creds.update', saveCreds);
 
-  // Minimal upsert handler
+  // Safer upsert handler
   sock.ev.on('messages.upsert', async (m) => {
-    const msg = m.messages[0];
-    if (!msg.message) return;
-    const type = getContentType(msg.message);
-    const from = msg.key.remoteJid;
-    console.log(`📨 Message type: ${type} from ${from}`);
+    try {
+      const msg = m.messages[0];
+      if (!msg.message) return;
+
+      const type = getContentType(msg.message);
+      const from = msg.key.remoteJid;
+      console.log(`📨 Message type: ${type} from ${from}`);
+
+      // Your message handling logic goes here
+
+    } catch (err) {
+      console.error("❌ Error in message handler:", err);
+    }
   });
 
   // Send file by URL utility
