@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../settings')
-const {lite , commands} = require('../lite')
+const {ven , commands} = require('../hisoka')
 
 //auto reply 
-lite({
+ven({
   on: "body"
 },    
 async (conn, mek, m, { from, body, isOwner }) => {

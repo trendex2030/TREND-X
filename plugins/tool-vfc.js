@@ -1,13 +1,13 @@
 const fs = require('fs');
 const config = require('../settings')
-const { lite, commands } = require('../lite')
+const { ven, commands } = require('../hisoka')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 
 
 
 //vcf//
 
-lite({
+ven({
     pattern: 'savecontact',
     alias: ["vcf","scontact","savecontacts"],
     desc: 'gc vcard',
@@ -39,8 +39,8 @@ lite({
         await conn.sendMessage(from, {
             document: fs.readFileSync(nmfilect), 
             mimetype: 'text/vcard', 
-            fileName: 'MalvinTech.vcf', 
-            caption: `\nDone saving.\nGroup Name: *${cmiggc.subject}*\nContacts: *${cmiggc.participants.length}*\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴍᴀʟᴠɪɴ-xᴅ ᴛᴇᴄʜ`}, { quoted: mek });
+            fileName: '𝕽𝖆𝖛𝖊𝖓.vcf', 
+            caption: `\nDone saving.\nGroup Name: *${cmiggc.subject}*\nContacts: *${cmiggc.participants.length}*\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ hhhisoka `}, { quoted: mek });
 
         fs.unlinkSync(nmfilect); // Cleanup the file after sending
     } catch (err) {

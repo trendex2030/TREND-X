@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../settings')
-const {lite , commands} = require('../lite')
+const {ven , commands} = require('../hisoka')
 
 
 // Composing (Auto Typing)
-lite({
+ven({
     on: "body"
 },    
 async (conn, mek, m, { from, body, isOwner }) => {

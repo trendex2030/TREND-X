@@ -1,7 +1,7 @@
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 const config = require('../settings');
 
-lite({
+ven({
     pattern: "owner",
     react: "✅", 
     desc: "Get owner number",

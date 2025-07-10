@@ -1,9 +1,10 @@
-const { lite ,commands } = require('../lite');
+const { ven ,commands } = require('../hisoka');
 const { exec } = require('child_process');
 const config = require('../settings');
 const {sleep} = require('../lib/functions')
+const { downloadMediaMessage } = require('@whiskeysockets/baileys');
 // 1. Shutdown Bot
-lite({
+ven({
     pattern: "shutdown",
     desc: "Shutdown the bot.",
     category: "owner",
@@ -15,7 +16,7 @@ async (conn, mek, m, { from, isOwner, reply }) => {
     reply("🛑 Shutting down...").then(() => process.exit());
 });
 // 2. Broadcast Message to All Groups
-lite({
+ven({
     pattern: "broadcast",
     desc: "Broadcast a message to all groups.",
     category: "owner",
@@ -33,7 +34,7 @@ async (conn, mek, m, { from, isOwner, args, reply }) => {
     reply("📢 Message broadcasted to all groups.");
 });
 // 3. Set Profile Picture
-lite({
+ven({
     pattern: "setpp",
     desc: "Set bot profile picture.",
     category: "owner",
@@ -44,7 +45,7 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
     if (!quoted || !quoted.message.imageMessage) return reply("❌ Please reply to an image.");
     try {
-        const media = await conn.downloadMediaMessage(quoted);
+        const media = await downloadMediaMessage(quoted);
         await conn.updateProfilePicture(conn.user.jid, { url: media });
         reply("🖼️ Profile picture updated successfully!");
     } catch (error) {
@@ -53,7 +54,7 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
 });
 
 // 6. Clear All Chats
-lite({
+ven({
     pattern: "clearchats",
     desc: "Clear all chats from the bot.",
     category: "owner",
@@ -74,7 +75,7 @@ async (conn, mek, m, { from, isOwner, reply }) => {
 });
 
 // 8. Group JIDs List
-lite({
+ven({
     pattern: "gjid",
     desc: "Get the list of JIDs for all groups the bot is part of.",
     category: "owner",
@@ -91,7 +92,7 @@ async (conn, mek, m, { from, isOwner, reply }) => {
 
 // delete 
 
-lite({
+ven({
 pattern: "delete",
 react: "❌",
 alias: ["del"],
@@ -100,7 +101,7 @@ category: "group",
 use: '.del',
 filename: __filename
 },
-async(conn, mek, m,{from, l, quoted, body, islite, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants,  isItzcp, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+async(conn, mek, m,{from, l, quoted, body, isven, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants,  isItzcp, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 if (!isOwner ||  !isAdmins) return;
 try{
 if (!m.quoted) return reply(mg.notextfordel);
@@ -116,4 +117,3 @@ console.log(e);
 reply('successful..👨‍💻✅')
 } 
 })
-

@@ -1,11 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../settings')
-const {lite , commands} = require('../lite')
+const {ven , commands} = require('../hisoka')
+
+const getContextInfo = (m) => {
+    return {
+        mentionedJid: [m.sender],
+        forwardingScore: 999,
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+            newsletterJid: '120363400575205721@newsletter',
+            newsletterName: '𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗',
+            serverMessageId: 143,
+        },
+    };
+};
 
 
 //auto recording
-lite({
+ven({
   on: "body"
 },    
 async (conn, mek, m, { from, body, isOwner }) => {       

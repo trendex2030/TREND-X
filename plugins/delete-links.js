@@ -1,4 +1,4 @@
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 const config = require('../settings');
 const fs = require('fs');
 const path = require('path');
@@ -25,7 +25,7 @@ const linkPatterns = [
   /https?:\/\/(?:www\.)?discord\.com\/\S+/gi
 ];
 
-lite({
+ven({
   on: 'body'
 }, async (conn, m, store, {
   from,

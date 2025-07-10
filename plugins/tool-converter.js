@@ -1,10 +1,10 @@
 const converter = require('../data/converter');
 const stickerConverter = require('../data/sticker-converter');
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 
-lite({
+ven({
     pattern: 'convert',
-    alias: ['sticker2img', 'stoimg', 'stickertoimage', 's2i'],
+    alias: ['toimg', 'img', 'stickertoimage', 's2i'],
     desc: 'Convert stickers to images',
     category: 'convert',
     react: '🖼️',
@@ -47,7 +47,7 @@ lite({
     }
 });
 
-lite({
+ven({
     pattern: 'tomp3',
     desc: 'Convert media to audio',
     category: 'convert',
@@ -97,7 +97,7 @@ lite({
     }
 });
 
-lite({
+ven({
     pattern: 'toptt',
     desc: 'Convert media to voice message',
     category: 'convert',
@@ -107,13 +107,13 @@ lite({
     // Input validation
     if (!match.quoted) {
         return await client.sendMessage(from, {
-            text: "*🗣️ Please reply to a video/audio message*"
+            text: "> !! *🗣️ Please reply to a video/audio message*"
         }, { quoted: message });
     }
 
     if (!['videoMessage', 'audioMessage'].includes(match.quoted.mtype)) {
         return await client.sendMessage(from, {
-            text: "❌ Only video/audio messages can be converted"
+            text: "> !! ❌ Only video/audio messages can be converted"
         }, { quoted: message });
     }
 
@@ -143,7 +143,7 @@ lite({
     } catch (e) {
         console.error('PTT conversion error:', e.message);
         await client.sendMessage(from, {
-            text: "❌ Failed to create voice message"
+            text: "> !!❌ Failed to create voice message"
         }, { quoted: message });
     }
 });

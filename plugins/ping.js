@@ -1,12 +1,12 @@
 const config = require('../settings');
-const { lite, commands } = require('../lite');
+const { ven, commands } = require('../hisoka');
 
-lite({
+ven({
     pattern: "ping",
     alias: ["speed","pong"],use: '.ping',
     desc: "Check bot's response time.",
     category: "main",
-    react: "⚡",
+    react: "🔔",
     filename: __filename
 },
 async (conn, mek, m, { from, quoted, sender, reply }) => {
@@ -32,7 +32,7 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const text = `> *LITE RESPONSE: ${responseTime.toFixed(2)}m/s ${reactionEmoji}*`;
+        const text = `> *REPONSE'S SPEED: ${responseTime.toFixed(2)}m/s ${reactionEmoji}*`;
 
         await conn.sendMessage(from, {
             text,
@@ -41,8 +41,8 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363402507750390@newsletter',
-                    newsletterName: "ᴍᴀʟᴠɪɴ ᴋɪɴɢ ᴛᴇᴄʜ",
+                    newsletterJid: '120363400575205721@newsletter',
+                    newsletterName: "𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗",
                     serverMessageId: 143
                 }
             }
@@ -54,5 +54,5 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
     }
 });
 
-// created by malvin king
+
 

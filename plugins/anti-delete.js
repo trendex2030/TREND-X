@@ -1,7 +1,7 @@
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 const { getAnti, setAnti } = require('../data/antidel');
 
-lite({
+ven({
     pattern: "antidelete",
     alias: ['antidel', 'del'],
     desc: "Toggle anti-delete feature",

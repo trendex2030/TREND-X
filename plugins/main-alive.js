@@ -1,9 +1,10 @@
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 const os = require('os');
 const { runtime } = require('../lib/functions');
 const config = require('../settings');
+const { createBox, successBox } = require('../lib/msg-formatter')
 
-lite({
+ven({
     pattern: "alive",
     alias: ["status", "online", "a"],
     desc: "Check if bot is alive and running",
@@ -16,20 +17,19 @@ lite({
         const totalMem = (os.totalmem() / 1024 / 1024).toFixed(2);
         const uptime = runtime(process.uptime());
 
-        const caption = `
-╭━━〔 🤖 *${config.BOT_NAME} STATUS* 〕━━⬣
-┃ 🟢 *Bot is Active & Online!*
-┃
-┃ 👑 *Owner:* ${config.OWNER_NAME}
-┃ 🔖 *Version:* ${config.version}
-┃ 🛠️ *Prefix:* [ ${config.PREFIX} ]
-┃ ⚙️ *Mode:* [ ${config.MODE} ]
-┃ 💾 *RAM:* ${heapUsed}MB / ${totalMem}MB
-┃ 🖥️ *Host:* ${os.hostname()}
-┃ ⏱️ *Uptime:* ${uptime}
-╰━━━━━━━━━━━━━━⬣
+ const caption = `
+█▓▒▒〔 🕶️ *${config.BOT_NAME}* 〕▒▒▓█
+█ ⚡ *En ligne & opérationnel*
+█ 👑 *Owner:* ${config.OWNER_NAME}
+█ 🔖 *Version:* ${config.version}
+█ 🛠️ *Préfixe:* ${config.PREFIX}
+█ ⚙️ *Mode:* ${config.MODE}
+█ 💾 *RAM:* ${heapUsed}MB / ${totalMem}MB
+█ 🖥️ *Hôte:* ${os.hostname()}
+█ ⏱️ *Uptime:* ${uptime}
+█████████████████████████████
 📝 *${config.DESCRIPTION}*
-        `.trim();
+`.trim();
 
         await conn.sendMessage(from, {
             image: { url: config.MENU_IMAGE_URL },
@@ -39,8 +39,8 @@ lite({
                 forwardingScore: 1000,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363402507750390@newsletter',
-                    newsletterName: 'Malvin Tech',
+                    newsletterJid: '120363400575205721@newsletter',
+                    newsletterName: '𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗',
                     serverMessageId: 143
                 }
             }

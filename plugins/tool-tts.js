@@ -1,9 +1,9 @@
 const axios = require('axios');
 const config = require('../settings')
-const {lite , commands} = require('../lite')
+const {ven , commands} = require('../hisoka')
 const googleTTS = require('google-tts-api')
 
-lite({
+ven({
     pattern: "tts",
     desc: "download songs",
     category: "download",
@@ -14,11 +14,27 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 if(!q) return reply("Need some text.")
     const url = googleTTS.getAudioUrl(q, {
-  lang: 'hi-IN',
+  lang: 'FR-fr',
   slow: false,
   host: 'https://translate.google.com',
 })
-await conn.sendMessage(from, { audio: { url: url }, mimetype: 'audio/mpeg', ptt: true }, { quoted: mek })
+const contextInfo = {
+    mentionedJid: [mek.sender],
+    forwardingScore: 999,
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+        newsletterJid: '120363400575205721@newsletter',
+        newsletterName: '𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗',
+        serverMessageId: 143,
+    },
+};
+
+await conn.sendMessage(from, { 
+    audio: { url: url }, 
+    mimetype: 'audio/mpeg', 
+    ptt: true,
+    contextInfo: contextInfo
+}, { quoted: mek })
     }catch(a){
 reply(`${a}`)
 }

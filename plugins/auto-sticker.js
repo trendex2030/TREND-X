@@ -2,9 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../settings');
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 
-lite({
+ven({
   on: "body"
 },
 async (conn, mek, m, { from, body }) => {
@@ -21,8 +21,8 @@ async (conn, mek, m, { from, body }) => {
 
                     await conn.sendMessage(from, {
                         sticker: stickerBuffer,
-                        packname: 'MALVIN-XD',
-                        author: 'ʟᴏʀᴅ ᴍᴋ'
+                        packname: '𝕽𝖆𝖛𝖊𝖓',
+                        author: '𝕽𝖆𝖛𝖊𝖓'
                     }, { quoted: mek });
                 } else {
                     console.warn(`Sticker not found: ${stickerPath}`);

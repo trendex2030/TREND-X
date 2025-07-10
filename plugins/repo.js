@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 const config = require('../settings');
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 
-lite({
+ven({
     pattern: "repo",
     alias: ["sc", "script", "info"],
     desc: "Fetch information about this GitHub repository.",
@@ -12,7 +12,7 @@ lite({
     category: "main",
     filename: __filename
 }, async (conn, mek, m, { from, reply }) => {
-    const githubRepoURL = 'https://github.com/XdKing2/LITE-XD';
+    const githubRepoURL = 'https://github.com/hhhisoka/Wa-his-v1.0';
 
     try {
         const [, username, repoName] = githubRepoURL.match(/github\.com\/([^/]+)\/([^/]+)/);
@@ -23,25 +23,27 @@ lite({
         const data = await res.json();
 
         const caption = `
-╭━━〔 🔎 *Repository Info* 〕━━⬣
-┃ 📦 *Bot Name:* ${data.name}
-┃ 👑 *Owner:* ${data.owner.login}
-┃ ⭐ *Stars:* ${data.stargazers_count}
+╭━━⬣ 🔍 *GitHub Repository Info*
+┃
+┃ 📦 *Nom du Projet:* ${data.name}
+┃ 👑 *Auteur:* ${data.owner.login}
+┃ ⭐ *Étoiles:* ${data.stargazers_count}
 ┃ 🍴 *Forks:* ${data.forks_count}
-┃ 🔗 *Link:* ${data.html_url}
-┃ 📝 *Description:* ${data.description || 'No description'}
-╰━━━━━━━━━━━━━━━━━━━━⬣
-✨ *Don't forget to ★ and fork!*
+┃ 🌐 *URL:* ${data.html_url}
+┃ 📝 *Description:* ${data.description || 'Aucune description disponible.'}
+┃
+╰━━━━━━━⬣
+✨ *Merci de ⭐ le repo si tu aimes !*
 🔧 ${config.DESCRIPTION}
-        `.trim();
+`.trim();
 
         const contextInfo = {
             mentionedJid: [m.sender],
             forwardingScore: 999,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363402507750390@newsletter',
-                newsletterName: 'Malvin Tech',
+                newsletterJid: '120363400575205721@newsletter',
+                newsletterName: '𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗',
                 serverMessageId: 143
             }
         };
@@ -52,14 +54,7 @@ lite({
             contextInfo
         }, { quoted: mek });
 
-        const audioPath = path.join(__dirname, '../all/menu.m4a');
-        await conn.sendMessage(from, {
-            audio: fs.readFileSync(audioPath),
-            mimetype: 'audio/mp4',
-            ptt: true,
-            contextInfo
-        }, { quoted: mek });
-
+    
     } catch (error) {
         console.error("Repo Command Error:", error);
         reply("❌ *Failed to fetch repository info.*\nPlease try again later.");

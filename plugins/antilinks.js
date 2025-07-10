@@ -1,4 +1,4 @@
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 const config = require("../settings");
 
 // Configurable lists
@@ -16,7 +16,7 @@ const linkPatterns = [
   /https?:\/\/ngl\/\S+/gi
 ];
 
-lite({
+ven({
   on: "body"
 }, async (conn, m, store, { from, body, sender, isGroup, isAdmins, isBotAdmins, reply }) => {
   try {

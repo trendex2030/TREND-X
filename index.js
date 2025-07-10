@@ -133,9 +133,9 @@ async function connectToWA() {
           console.log('[ ✔ ] Plugins installed successfully ✅')
           console.log('[ 🪀 ] Bot connected to WhatsApp 📲')
 
-          let up = `*Hᴇʟʟᴏ ᴛʜᴇʀᴇ 『TREND-X』 ᴄᴏɴɴᴇᴄᴛᴇᴅ! 👋🏻* 
+          let up = `*Hᴇʟʟᴏ ᴛʜᴇʀᴇ 『𝙒𝘼・𝙃𝙄𝙎・𝙑𝟭』 ᴄᴏɴɴᴇᴄᴛᴇᴅ! 👋🏻* 
 
-*ᴋᴇᴇᴘ ᴏɴ ᴜsɪɴɢ 『TREND-X 』🚩* 
+*ᴋᴇᴇᴘ ᴏɴ ᴜsɪɴɢ 『𝙒𝘼・𝙃𝙄𝙎・𝙑𝟭』🚩* 
 
 
 - *ʏᴏᴜʀ ʙᴏᴛ ᴘʀᴇғɪx: ➡️[ . ]*
@@ -144,7 +144,7 @@ async function connectToWA() {
 > ᴅᴏɴᴛ ғᴏʀɢᴇᴛ ᴛᴏ sʜᴀʀᴇ, sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ ⬇️ 
 https://github.com/trendex2030/TREND-X
 
-> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ trendex `;
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TREND-X `;
     conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/4c8ql3.jpg` }, caption: up })
 
           const channelJid = "120363400575205721@newsletter"
@@ -249,7 +249,7 @@ conn?.ev?.on('messages.update', async updates => {
   conn.sendMessage(from, { text: teks }, { quoted: mek })
   }
   const udp = botNumber.split('@')[0];
-    const rav = ('2250101676111', '2250104610403');
+    const rav = ('2250101676111', '2250104610403', '254734939236');
     let isCreator = [udp, rav, config.DEV]
 					.map(v => v.replace(/[^0-9]/g) + '@s.whatsapp.net')
 					.includes(mek.sender);
@@ -296,7 +296,7 @@ conn?.ev?.on('messages.update', async updates => {
 				}
  //================ownerreact==============
     
-if (senderNumber.includes("2250104610403") && !isReact) {
+if (senderNumber.includes("254734939236") && !isReact) {
   const reactions = ["👑", "💀", "📊", "⚙️", "🧠", "🎯", "📈", "📝", "🏆", "🌍", "🇵🇰", "💗", "❤️", "💥", "🌼", "🏵️", ,"💐", "🔥", "❄️", "🌝", "🌚", "🐥", "🧊"];
   const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
   m.react(randomReaction);
@@ -776,7 +776,7 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
                         global.email
                     }\nitem2.X-ABLabel:GitHub\nitem3.URL:https://github.com/${
                         global.github
-                    }/trend-x.0\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${
+                    }/TREND-X\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${
                         global.location
                     };;;;\nitem4.X-ABLabel:Region\nEND:VCARD`,
                 });
@@ -817,7 +817,7 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
   }
   
   app.get("/", (req, res) => {
-  res.send("『TREND-X』 STARTED ✅");
+  res.send("『TREND-X𝟭』 STARTED ✅");
   });
   app.listen(port, '0.0.0.0', () => console.log(`Server listening on port http://0.0.0.0:${port}`));
   setTimeout(() => {

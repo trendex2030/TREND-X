@@ -1,5 +1,5 @@
 const config = require('../settings');
-const { lite } = require('../lite');
+const { ven } = require('../hisoka');
 const DY_SCRAP = require('@dark-yasiya/scrap');
 const dy_scrap = new DY_SCRAP();
 
@@ -9,7 +9,7 @@ function replaceYouTubeID(url) {
     return match ? match[1] : null;
 }
 
-lite({
+ven({
     pattern: "song",
     alias: ["s","play"],
     react: "🎵",
@@ -34,17 +34,24 @@ lite({
 
         const { url, title, image, timestamp, ago, views, author } = data.results[0];
 
-        let info = `🍄 *𝚂𝙾𝙽𝙶 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁* 🍄\n\n` +
-            `🎵 *Title:* ${title || "Unknown"}\n` +
-            `⏳ *Duration:* ${timestamp || "Unknown"}\n` +
-            `👀 *Views:* ${views || "Unknown"}\n` +
-            `🌏 *Release Ago:* ${ago || "Unknown"}\n` +
-            `👤 *Author:* ${author?.name || "Unknown"}\n` +
-            `🖇 *Url:* ${url || "Unknown"}\n\n` +
-            `🔽 *Reply with your choice:*\n` +
-            `> 1 *Audio Type* 🎵\n` +
-            `> 2 *Document Type* 📁\n\n` +
-            `${config.FOOTER || "ʟɪᴛᴇ-xᴅ"}`;
+        let info = `
+╭━━🎵 *SONG DOWNLOADER* 🎵━━╮
+┃
+┃ 📌 *Titre:* ${title || "Inconnu"}
+┃ ⏳ *Durée:* ${timestamp || "Inconnue"}
+┃ 👁️ *Vues:* ${views || "Inconnues"}
+┃ 🌍 *Publié il y a:* ${ago || "Inconnu"}
+┃ 👤 *Auteur:* ${author?.name || "Inconnu"}
+┃ 🔗 *Lien:* ${url || "Indisponible"}
+┃
+╰━━━━━━━━━━━━━━━━━━━━╯
+
+🔽 *Réponds avec ton choix:*
+1️⃣ *Audio* 🎧  
+2️⃣ *Document* 📁
+
+${config.FOOTER || "『𝙒𝘼・𝙃𝙄𝙎・𝙑𝟭』"}
+`.trim();
 
         const sentMsg = await conn.sendMessage(from, { image: { url: image }, caption: info }, { quoted: mek });
         const messageID = sentMsg.key.id;
@@ -65,27 +72,34 @@ lite({
                 let msg;
                 let type;
                 let response;
-                
+                const contextInfo = mekInfo?.message?.extendedTextMessage?.contextInfo
+
                 if (userReply === "1") {
-                    msg = await conn.sendMessage(from, { text: "⏳ Processing..." }, { quoted: mek });
+                    msg = await conn.sendMessage(from, { 
+                        text: "⏳ Processing...",
+                        contextInfo: contextInfo
+                    }, { quoted: mek });
                     response = await dy_scrap.ytmp3(`https://youtube.com/watch?v=${id}`);
                     let downloadUrl = response?.result?.download?.url;
                     if (!downloadUrl) return await reply("❌ Download link not found!");
                     type = { audio: { url: downloadUrl }, mimetype: "audio/mpeg" };
-                    
+
                 } else if (userReply === "2") {
-                    msg = await conn.sendMessage(from, { text: "⏳ Processing..." }, { quoted: mek });
+                    msg = await conn.sendMessage(from, { 
+                        text: "⏳ Processing...",
+                        contextInfo: contextInfo
+                    }, { quoted: mek });
                     const response = await dy_scrap.ytmp3(`https://youtube.com/watch?v=${id}`);
                     let downloadUrl = response?.result?.download?.url;
                     if (!downloadUrl) return await reply("❌ Download link not found!");
                     type = { document: { url: downloadUrl }, fileName: `${title}.mp3`, mimetype: "audio/mpeg", caption: title };
-                    
+
                 } else { 
                     return await reply("❌ Invalid choice! Reply with 1 or 2.");
                 }
 
                 await conn.sendMessage(from, type, { quoted: mek });
-                await conn.sendMessage(from, { text: '✅ Media Upload Successful ✅', edit: msg.key });
+                await conn.sendMessage(from, { text: '✓ Media Upload Successful ✓', edit: msg.key });
 
             } catch (error) {
                 console.error(error);
@@ -99,4 +113,3 @@ lite({
         await reply(`❌ *An error occurred:* ${error.message || "Error!"}`);
     }
 });
-                               
