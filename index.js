@@ -464,4 +464,4 @@ if (!isReact && config.CUSTOM_REACT === 'true') {
                   if (mime.split("/")[0] === "video") {
                     return conn.sendMessage(jid, { video: await getBuffer(url), caption: caption, ...options }, { quoted: quoted, ...options })
                   }
-                  if (mime.split("
+                  if (mime.split();
