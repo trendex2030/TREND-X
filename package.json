@@ -1,8 +1,7 @@
 {
-  "name": "trend-x",
+  "name": "TREND-X",
   "version": "0.0.5",
-  "description": "A WhatsApp Bot Created By trendex base provid by malvin king",
-  "main": "index.js",
+  "description": "A WhatsApp Bot Created By Trend-x base provid by hhhisoka-bot",
   "scripts": {
     "start": "node index.js"
   },

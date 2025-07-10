@@ -1,5 +1,5 @@
 const config = require('../settings');
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 const DY_SCRAP = require('@dark-yasiya/scrap');
 const dy_scrap = new DY_SCRAP();
 

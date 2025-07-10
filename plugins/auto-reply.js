@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../settings')
-const {ven , commands} = require('../hisoka')
+const {ven , commands} = require('../trend')
 
 //auto reply 
 ven({

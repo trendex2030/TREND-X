@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../settings');
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 
 ven({
   on: "body"

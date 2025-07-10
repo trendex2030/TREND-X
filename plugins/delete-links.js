@@ -1,4 +1,4 @@
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 const config = require('../settings');
 const fs = require('fs');
 const path = require('path');

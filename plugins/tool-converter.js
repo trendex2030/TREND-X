@@ -1,6 +1,6 @@
 const converter = require('../data/converter');
 const stickerConverter = require('../data/sticker-converter');
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 
 ven({
     pattern: 'convert',

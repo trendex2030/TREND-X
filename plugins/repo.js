@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 const config = require('../settings');
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 
 ven({
     pattern: "repo",

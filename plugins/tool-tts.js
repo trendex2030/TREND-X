@@ -1,6 +1,6 @@
 const axios = require('axios');
 const config = require('../settings')
-const {ven , commands} = require('../hisoka')
+const {ven , commands} = require('../trend')
 const googleTTS = require('google-tts-api')
 
 ven({

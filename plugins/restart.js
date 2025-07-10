@@ -1,9 +1,9 @@
-const { ven } = require("../hisoka");  
+const { ven } = require("../trend");  
 const { sleep } = require("../lib/functions");  
 
 ven({  
     pattern: "restart",  
-    desc: "Restart 𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗",  
+    desc: "Restart TREND-X",
     category: "owner",  
     filename: __filename  
 },  

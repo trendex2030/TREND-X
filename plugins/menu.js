@@ -2,10 +2,10 @@
 
 const fs = require('fs');
 const config = require('../settings');
-const { lite, commands } = require('../lite');
+const { ven, commands } = require('../trend');
 const axios = require('axios');
 
-lite({
+ven({
     pattern: "menu",
     react: "🤖",
     alias: ["allmenu"],
@@ -86,8 +86,8 @@ ${menu.fun || '│ (No commands found)'}
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363402507750390@newsletter',
-                        newsletterName: 'Lite XD',
+                        newsletterJid: '120363400575205721@newsletter',
+                        newsletterName: 'TREND-X',
                         serverMessageId: 143
                     }
                 }

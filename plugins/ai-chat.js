@@ -1,5 +1,5 @@
 
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 const config = require('../settings');
 const axios = require('axios');
 

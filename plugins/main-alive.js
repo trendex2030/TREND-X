@@ -1,4 +1,4 @@
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 const os = require('os');
 const { runtime } = require('../lib/functions');
 const config = require('../settings');

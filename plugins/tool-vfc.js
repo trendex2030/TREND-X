@@ -1,6 +1,6 @@
 const fs = require('fs');
 const config = require('../settings')
-const { ven, commands } = require('../hisoka')
+const { ven, commands } = require('../trend')
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 
 

@@ -1,4 +1,4 @@
-const { ven ,commands } = require('../hisoka');
+const { ven ,commands } = require('../trend');
 const { exec } = require('child_process');
 const config = require('../settings');
 const {sleep} = require('../lib/functions')

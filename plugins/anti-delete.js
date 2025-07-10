@@ -1,4 +1,4 @@
-const { ven } = require('../hisoka');
+const { ven } = require('../trend');
 const { getAnti, setAnti } = require('../data/antidel');
 
 ven({

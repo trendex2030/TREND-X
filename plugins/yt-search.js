@@ -1,6 +1,6 @@
 const config = require('../settings')
 const l = console.log
-const { ven, commands } = require('../hisoka')
+const { ven, commands } = require('../trend')
 const dl = require('@bochilteam/scraper')  
 const ytdl = require('yt-search');
 const fs = require('fs-extra')
