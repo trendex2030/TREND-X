@@ -1,8 +1,8 @@
 {
   "name": "TREND-X",
-  "description": "Javascript WhatsApp bot made by TRENDEX KING",
-  "logo": "https://files.catbox.moe/qumhu4.jpg",
-  "keywords": ["MALVIN-XD","LITE-XD"],
+  "description": "Wa bot by trendex",
+  "logo": "https://files.catbox.moe/pzofv5.jpg",
+  "keywords": ["trendex","trend-x"],
   "success_url": "/",
 
     "stack": "container",
@@ -15,10 +15,10 @@
       "BOT_NAME": {
         "description": "write here your bot name.",
         "required": true,
-        "value": "TREND-X"      
+        "value": "trend-x"      
     },  
     "MODE": {
-      "description": "Set private/public/inbox/groups",
+      "description": "chose between private/public/inbox/groups",
       "required": false,
       "value": "public"
      },
@@ -32,12 +32,12 @@
     "OWNER_NAME": {
       "description": "Put Owner Name Here",
       "required": true,
-      "value": ""
+      "value": "hhhisoka"
     },
     "OWNER_NUMBER": {
       "description": "Put only one Owner Number Here",
       "required": true,
-      "value": ""
+      "value": "2250101676111"
     },
     
     "PRESENCE": {
