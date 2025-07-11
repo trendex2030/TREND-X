@@ -12,7 +12,7 @@ ven({
     category: "main",
     filename: __filename
 }, async (conn, mek, m, { from, reply }) => {
-    const githubRepoURL = 'https://github.com/hhhisoka/Wa-his-v1.0';
+    const githubRepoURL = 'https://github.com/trendex2030/TREND-X';
 
     try {
         const [, username, repoName] = githubRepoURL.match(/github\.com\/([^/]+)\/([^/]+)/);
