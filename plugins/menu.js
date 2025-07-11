@@ -1,108 +1,233 @@
+/**
 
 
-const fs = require('fs');
-const config = require('../settings');
-const { ven, commands } = require('../trend');
-const axios = require('axios');
+ Copyright (C) 2025.
+ Licensed under the  GPL-3.0 License;
+ You may not sell this script.
+ It is supplied in the hope that it may be useful.
+ * @project_name : Free Bot script
+ * @author : trendex King <https://github.com/trendex2030>
+ * @description : A Multi-functional whatsapp bot script.
+ * @version 3.0.0
+ **/
 
-ven({
+const {readEnv} = require('../config')
+const {cmd , commands} = require('../command')
+const os = require("os")
+const {runtime} = require('../lib/functions')
+cmd({
     pattern: "menu",
-    react: "🤖",
-    alias: ["allmenu"],
-    desc: "Get command list",
-    category: "main",
-    filename: __filename
+    alias: ["list"],
+    desc: "bot's commands",
+    react: "📜",
+    category: "main"
 },
-async (conn, mek, m, {
-    from, quoted, pushname, reply
-}) => {
+async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-        let menu = {
-            download: '', group: '', fun: '', owner: '',
-            ai: '', anime: '', convert: '', reaction: '',
-            main: '', other: ''
-        };
+        let desc = `*👋 Hello ${pushname}*
 
-        for (let i = 0; i < commands.length; i++) {
-            let cmd = commands[i];
-            if (cmd.pattern && !cmd.dontAddCommandList && menu.hasOwnProperty(cmd.category)) {
-                menu[cmd.category] += `│ ⬡ ${cmd.pattern}\n`;
-            }
-        }
+*╭─「 ${config.TREND-X} 」*
+*│◈ ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}*
+*│◈ ʀᴀᴍ ᴜꜱᴀɢᴇ : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB*
+*│◈ ᴘʟᴀᴛꜰᴏʀᴍ : ${os.hostname()}*
+*│◈ ᴠᴇʀꜱɪᴏɴ : 3.0.0*
+*╰──────────●●►*
 
-        let madeMenu = `
-╭─❍ *${config.BOT_NAME} MENU*
-│ 👤 User: ${pushname}
-│ 🌐 Mode: [${config.MODE}]
-│ ✨ Prefix: [${config.PREFIX}]
-│ 📦 Total Commands: ${commands.length}
-│ 📌 Version: ${config.version} BETA
-╰─────────────✦
+*╭╼╼╼╼╼╼╼╼╼╼*
+*├ 1 • MAIN*
+*├ 2 • SEARCH*
+*├ 3 • DOWNLOAD*
+*├ 4 • GROUP*
+*├ 5 • OWNER*
+*├ 6 • FUN*
+*╰╼╼╼╼╼╼╼╼╼╼*
 
-┌───『 🛠️ Admin Commands 』
-${menu.group || '│ (No commands found)'}
-${menu.main || ''}
-${menu.other || ''}
-└─────────────✦
+_*🌟 Reply with the Number you want to select*_
 
-┌───『 📥 Downloader Commands 』
-${menu.download || '│ (No commands found)'}
-└─────────────✦
+> *𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 TREND-X*`;
 
-┌───『 🧑‍💻 Owner Commands 』
-${menu.owner || '│ (No commands found)'}
-└─────────────✦
+        const vv = await conn.sendMessage(from, { image: { url: config.MENU_IMG}, caption: desc }, { quoted: mek });
 
-┌───『 🧠 AI Commands 』
-${menu.ai || '│ (No commands found)'}
-└─────────────✦
+        conn.ev.on('messages.upsert', async (msgUpdate) => {
+            const msg = msgUpdate.messages[0];
+            if (!msg.message || !msg.message.extendedTextMessage) return;
 
-┌───『 ✨ Logo/Anime Commands 』
-${menu.anime || '│ (No commands found)'}
-└─────────────✦
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
 
-┌───『 🔄 Convert Commands 』
-${menu.convert || '│ (No commands found)'}
-└─────────────✦
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
+                    case '1':
+                    reply(`
+                    
 
-┌───『 🎭 Reaction Commands 』
-${menu.reaction || '│ (No commands found)'}
-└─────────────✦
+╔════════════════════════╗  
+║ 🔧 **𝗠𝗔𝗜𝗡 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧** 🔧 ║  
+╚════════════════════════╝  
 
-┌───『 🎉 Fun Commands 』
-${menu.fun || '│ (No commands found)'}
-└─────────────✦
+╭─━─〔 ⚡ **Commands** ⚡ 〕━━╮  
+┃ ◈ **alive**
+┃ ◈ **menu**  
+┃ ◈ **menu2**  
+┃ ◈ **system**  
+┃ ◈ **ping**  
+┃ ◈ **runtime**
+┃ ◈ **jid**
+╰─━─━─━─━─━─━─━─━─╯  
 
-> ${config.DESCRIPTION}
-`;
+📊 **Total Commands in MAIN:** 7  
+ 
+> 💡 **𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 TREND-X**  
 
-        await conn.sendMessage(
-            from,
-            {
-                image: { url: config.MENU_IMAGE_URL },
-                caption: madeMenu,
-                contextInfo: {
-                    mentionedJid: [m.sender],
-                    forwardingScore: 999,
-                    isForwarded: true,
-                    forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363400575205721@newsletter',
-                        newsletterName: 'TREND-X',
-                        serverMessageId: 143
-                    }
+`);
+
+                        break;
+                    case '2':               
+                        reply(`
+
+╔════════════════════════╗  
+║ 🔍 **𝗦𝗘𝗔𝗥𝗖𝗛 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧** 🔍 ║  
+╚════════════════════════╝  
+
+╭─━〔 ⚡ **Commands** ⚡ 〕━──━╮  
+┃ ◈ **yts**  
+┃ ◈ **image** 
+╰─━─━─━━─━─━─━─━─━─╯  
+
+📊 **Total Commands in SEARCH:** 2
+
+> 💡 **𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 TREND-X**
+`);
+                        break;
+                    case '3':               
+                        reply(`
+╔════════════════════════╗  
+║ 📥 **𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧** 📥 ║  
+╚════════════════════════╝  
+
+╭─━━〔 ⚡ **Commands** ⚡ 〕━─━━╮  
+┃ ◈ **apk**  
+┃ ◈ **twitter**  
+┃ ◈ **gdrive**  
+┃ ◈ **mediafire**  
+┃ ◈ **fb**  
+┃ ◈ **play**
+┃ ◈ **play2**  
+┃ ◈ **video**   
+┃ ◈ **video2**  
+┃ ◈ **yta**  
+┃ ◈ **tiktok**
+┃ ◈ **ytmp3**
+╰─━─━─━─━─━─━─━─━─━─╯  
+
+📊 **Total Commands in DOWNLOAD:** 12
+ 
+> 💡 **𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 TREND-X**  
+
+`);
+                    
+                        break;
+                    case '4':               
+                        reply(`
+╔════════════════════════╗  
+║ 👥 **𝗚𝗥𝗢𝗨𝗣 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧** 👥 ║  
+╚════════════════════════╝  
+
+╭─━──━〔 ⚡ **Commands** ⚡ 〕━─━╮  
+┃ ◈ **mute**  
+┃ ◈ **unmute**  
+┃ ◈ **promote**  
+┃ ◈ **demote**  
+┃ ◈ **del**  
+┃ ◈ **add**  
+┃ ◈ **admins**  
+┃ ◈ **groupdesc**  
+┃ ◈ **groupinfo**  
+┃ ◈ **gname**  
+┃ ◈ **setsubject**  
+┃ ◈ **tagall**  
+┃ ◈ **hidetag**  
+┃ ◈ **unlock**  
+┃ ◈ **lock**
+┃ ◈ **gname**  
+┃ ◈ **join**  
+┃ ◈ **leave**  
+┃ ◈ **invite**  
+┃ ◈ **tagadmin**  
+╰─━─━─━─━─━─━─━─━─━━─╯  
+
+📊 **Total Commands in GROUP:** 20  
+
+
+> 💡 **𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 TREND-X**  
+`);
+                    break;
+                    case '5':               
+                        reply(`
+╔════════════════════════╗  
+║ 👨‍💻 **𝗢𝗪𝗡𝗘𝗥 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧** 👨‍💻 ║  
+╚════════════════════════╝  
+
+╭─━〔 🍿 **Commands** 🍿 〕━──━╮ 
+┃ ◈ **shutdown**  
+┃ ◈ **alive**  
+┃ ◈ **ping**  
+┃ ◈ **clearchats**  
+┃ ◈ **block**
+┃ ◈ **unblock**
+┃ ◈ **repo**
+┃ ◈ **owner**
+┃ ◈ **owner2**
+╰─━━─━─━──━─━─━━─━─╯  
+
+📊 **Total Commands in Owner:** 9
+
+ 
+> 💡 **𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 TREND-X**  
+
+`);
+                    break;
+                    case '6':               
+                        reply(`
+╔════════════════════════╗  
+║ 👨‍💻 **𝐓𝐎𝐎𝐋𝐒 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧** 👨‍💻 ║  
+╚════════════════════════╝  
+
+╭─━〔 🍿 **Commands** 🍿 〕━──━╮ 
+┃ ◈ **joke**  
+┃ ◈ **flirt**  
+┃ ◈ **truth**  
+┃ ◈ **dare**  
+┃ ◈ **fact**
+┃ ◈ **pickupline**
+┃ ◈ **character**
+┃ ◈ **repeat**
+┃ ◈ **spam**
+┃ ◈ **readmore**
+╰─━━─━─━──━─━─━━─━─╯  
+
+📊 **Total Commands in Owner:** 10
+
+ 
+> 💡 **𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 TREND-X**  
+
+`);
+                       
+                        
+                    break;
+                    default:
+                    
+                        reply("Invalid option. Please select a valid option🔴");
                 }
-            },
-            { quoted: mek }
-        );
 
-        await conn.sendMessage(from, {
-            audio: fs.readFileSync('./all/menu.m4a'),
-            mimetype: 'audio/mp4',
-            ptt: true
-        }, { quoted: mek });
+            }
+        });
 
     } catch (e) {
         console.error(e);
-        reply(`${e}`);
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
+    }
+});
+ssing your request.');
     }
 });
