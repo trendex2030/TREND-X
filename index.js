@@ -142,10 +142,10 @@ async function connectToWA() {
 > - ʏᴏᴜ ᴄᴀɴ ᴄʜᴀɴɢᴇ ᴜʀ ᴘʀᴇғɪx ᴜsɪɴɢ ᴛʜᴇ .ᴘʀᴇғɪx ᴄᴏᴍᴍᴀɴᴅ
 
 > ᴅᴏɴᴛ ғᴏʀɢᴇᴛ ᴛᴏ sʜᴀʀᴇ, sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ ⬇️ 
-https://github.com/hhhisoka/Wa-his-v1.0
+https://github.com/trendex2030/TREND-X
 
-> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ hhhisoka `;
-    conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/4c8ql3.jpg` }, caption: up })
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX`;
+    conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/adymbp.jpg` }, caption: up })
 
           const channelJid = "120363400575205721@newsletter"
           try {
