@@ -31,7 +31,7 @@ ven({
         const question = args.join(' ');
         
         // Utilisation d'une API fiable
-        const response = await axios.get(`https://api.bk9.fun/ai/gemini`, {
+        const response = await axios.get(`https://api.safone.tech/chatgpt?message=${encodeURIComponent(q)`, {
             params: { q: question }
         });
 
