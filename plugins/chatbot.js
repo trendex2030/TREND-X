@@ -1,5 +1,5 @@
 const { ven } = require('../trend');
-const { addUser, removeUser, isChatbotUser } = require('../lib/chatbot');
+const { addUser, removeUser, isChatbotUser } = require('../settings);
 
 ven({
   pattern: "chatbot",
