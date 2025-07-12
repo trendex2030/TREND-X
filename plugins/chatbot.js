@@ -1,26 +1,23 @@
-const { ven } = require('../trend');
-const { addUser, removeUser, isChatbotUser } = require('../settings);
+const axios = require('axios');
+const { ven } = require('../trend'); // Adjust path as needed
 
 ven({
   pattern: "chatbot",
-  desc: "Enable or disable chatbot mode",
+  desc: "Ask anything to AI",
   category: "ai",
-  use: "<on/off>",
+  use: "<text>",
   react: "🤖",
   filename: __filename
 },
-async (conn, mek, m, { q, reply, sender }) => {
-  if (!q) return reply("🧠 Use `.chatbot on` or `.chatbot off`");
+async (conn, mek, m, { q, reply, pushname }) => {
+  if (!q) return reply("❌ Please enter a message for the chatbot.");
 
-  const user = sender || m.sender;
-
-  if (q.toLowerCase() === "on") {
-    addUser(user);
-    return reply("✅ Chatbot mode ON. I’ll now reply to your messages.");
-  } else if (q.toLowerCase() === "off") {
-    removeUser(user);
-    return reply("❌ Chatbot mode OFF. I won’t reply automatically.");
-  } else {
-    return reply("⚠️ Invalid input. Use `.chatbot on` or `.chatbot off`");
+  try {
+    const res = await axios.get(`https://api.safone.tech/chatgpt?message=${encodeURIComponent(q)}`);
+    const response = res.data?.response || "🤖 I didn't understand that.";
+    await conn.sendMessage(m.chat, { text: response }, { quoted: m });
+  } catch (err) {
+    console.error("API Error:", err);
+    return reply("⚠️ Failed to contact the chatbot API.");
   }
 });
