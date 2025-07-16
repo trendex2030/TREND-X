@@ -80,10 +80,13 @@ fs.writeFile(__dirname + '/sessions/creds.json', data, () => {
 console.log("Session downloaded ✅")
 })})}
 
-const express = require("express");
-const app = express();
-const port = process.env.PORT || 9090;
-
+const express = require('express')
+    const app = express()
+    const port = process.env.PORT || 9090
+    app.get("/", (_, res) => res.send("Session missing! Upload SESSION_ID"))
+    app.listen(port, () => console.log(`Fallback web server running on port ${port}`))
+    return
+  }
   //=============================================
 
   async function connectToWA() {
