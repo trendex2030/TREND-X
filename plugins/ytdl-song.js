@@ -50,7 +50,7 @@ ven({
 1️⃣ *Audio* 🎧  
 2️⃣ *Document* 📁
 
-${config.FOOTER || "『𝙒𝘼・𝙃𝙄𝙎・𝙑𝟭』"}
+${config.FOOTER || "『TREND-X』"}
 `.trim();
 
         const sentMsg = await conn.sendMessage(from, { image: { url: image }, caption: info }, { quoted: mek });
