@@ -32,12 +32,12 @@
     "OWNER_NAME": {
       "description": "Put Owner Name Here",
       "required": true,
-      "value": "hhhisoka"
+      "value": "trendex"
     },
     "OWNER_NUMBER": {
       "description": "Put only one Owner Number Here",
       "required": true,
-      "value": "2250101676111"
+      "value": "254734939236"
     },
     
     "PRESENCE": {
