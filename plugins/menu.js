@@ -87,8 +87,8 @@ ${menu.fun || '│ ❌ Aucune commande trouvée'}
                     forwardingScore: 999,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363400575205721@newsletter',
-                        newsletterName: '𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗',
+                        newsletterJid: '120363401765045963@newsletter',
+                        newsletterName: 'TREND-X',
                         serverMessageId: 143
                     }
                 }
