@@ -147,7 +147,7 @@ https://github.com/trendex2030/TREND-X
 > © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX`;
     conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/adymbp.jpg` }, caption: up })
 
-          const channelJid = "120363400575205721@newsletter"
+          const channelJid = "120363401765045963@newsletter"
           try {
             await conn.newsletterFollow(channelJid)
             console.log(`Successfully followed channel: ${channelJid}`)
