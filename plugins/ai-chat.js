@@ -1,4 +1,4 @@
-const { cmd } = require('../command');
+const { cmd } = require('../trend');
 const axios = require('axios');
 
 cmd({
