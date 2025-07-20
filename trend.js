@@ -1,20 +1,22 @@
 var commands = [];
 
 function ven(info, func) {
-var data = info;
-data.function = func;
-if (!data.dontAddCommandList) data.dontAddCommandList = false;
-if (!info.desc) info.desc = '';
-if (!data.fromMe) data.fromMe = false;
-if (!info.category) data.category = 'misc';
-if(!info.filename) data.filename = "Not Provided";
-commands.push(data);
-return data;
+    var data = info;
+    data.function = func;
+    if (!data.dontAddCommandList) data.dontAddCommandList = false;
+    if (!data.desc) data.desc = '';
+    if (!data.fromMe) data.fromMe = false;
+    if (!data.category) data.category = 'misc';
+    if (!data.filename) data.filename = "Not Provided";
+    commands.push(data);
+    return data;
 }
+
 module.exports = {
-ven,
-AddCommand:ven,
-Function:ven,
-Module:ven,
-commands,
+    cmd: ven,             // ✅ Allow importing with: const { cmd } = require('./trend')
+    ven,
+    AddCommand: ven,
+    Function: ven,
+    Module: ven,
+    commands,
 };
