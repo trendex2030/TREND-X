@@ -7,14 +7,14 @@ function ven(info, func) {
     if (!info.desc) info.desc = '';
     if (!data.fromMe) data.fromMe = false;
     if (!info.category) data.category = 'misc';
-    if(!info.filename) data.filename = "Not Provided";
+    if (!info.filename) data.filename = "Not Provided";
     commands.push(data);
     return data;
 }
+
 module.exports = {
-    cmd,
-    AddCommand:ven,
-    Function:ven,
-    Module:ven,
+    AddCommand: ven,
+    Function: ven,
+    Module: ven,
     commands,
 };
