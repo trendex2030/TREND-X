@@ -1,31 +1,20 @@
-const commands = [];
+var commands = [];
 
-function ven(options, handler) {
-    if (typeof options === 'object' && typeof handler === 'function') {
-        // Command-style registration
-        const command = {
-            pattern: options.pattern || null,
-            alias: options.alias || [],
-            desc: options.desc || '',
-            category: options.category || 'misc',
-            react: options.react || null,
-            filename: options.filename || '',
-            use: options.use || '',
-            function: handler,
-            on: options.on || null
-        };
-        commands.push(command);
-    } else if (typeof options === 'object' && options.on) {
-        // Event-style registration (like "body", "text", etc.)
-        const event = {
-            on: options.on,
-            function: handler || options.function
-        };
-        commands.push(event);
-    }
+function ven(info, func) {
+    var data = info;
+    data.function = func;
+    if (!data.dontAddCommandList) data.dontAddCommandList = false;
+    if (!info.desc) info.desc = '';
+    if (!data.fromMe) data.fromMe = false;
+    if (!info.category) data.category = 'misc';
+    if(!info.filename) data.filename = "Not Provided";
+    commands.push(data);
+    return data;
 }
-
 module.exports = {
-    ven,
-    commands
+    cmd,
+    AddCommand:ven,
+    Function:ven,
+    Module:ven,
+    commands,
 };
