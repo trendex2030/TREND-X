@@ -1,89 +1,84 @@
-const { ven } = require('../trend');
+
+const { ven } = require('../hisoka');
+const config = require('../settings');
 const axios = require('axios');
 
 ven({
     pattern: "ai",
-    alias: ["bot", "dj", "gpt", "gpt4", "bing"],
-    desc: "Chat with an AI model",
-    category: "ai",
     react: "🤖",
-    filename: __filename
-},
-async (conn, mek, m, { from, args, q, reply, react }) => {
-    try {
-        if (!q) return reply("Please provide a message for the AI.\nExample: `.ai Hello`");
-
-        const apiUrl = `https://lance-frank-asta.onrender.com/api/gpt?q=${encodeURIComponent(q)}`;
-        const { data } = await axios.get(apiUrl);
-
-        if (!data || !data.message) {
-            await react("❌");
-            return reply("AI failed to respond. Please try again later.");
-        }
-
-        await reply(`${data.message}`);
-        await react("✅");
-    } catch (e) {
-        console.error("Error in AI command:", e);
-        await react("❌");
-        reply("An error occurred while communicating with the AI.");
-    }
-});
-
-ven({
-    pattern: "openai",
-    alias: ["chatgpt", "gpt3", "open-gpt"],
-    desc: "Chat with OpenAI",
+    alias: ["gpt", "chatgpt", "openai"],
+    desc: "Chat avec l'intelligence artificielle",
     category: "ai",
-    react: "🧠",
-    filename: __filename
-},
-async (conn, mek, m, { from, args, q, reply, react }) => {
+    filename: __filename,
+    use: "[question]"
+}, async (conn, mek, m, { from, args, reply, pushname }) => {
     try {
-        if (!q) return reply("Please provide a message for OpenAI.\nExample: `.openai Hello`");
-
-        const apiUrl = `https://vapis.my.id/api/openai?q=${encodeURIComponent(q)}`;
-        const { data } = await axios.get(apiUrl);
-
-        if (!data || !data.result) {
-            await react("❌");
-            return reply("OpenAI failed to respond. Please try again later.");
+        if (!args[0]) {
+            return reply(`
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🤖 𝗖𝗛𝗔𝗧 𝗔𝗩𝗘𝗖 𝗔𝗜        ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ 💬 Posez votre question !   ┃
+┃                            ┃
+┃ 📝 Exemple:                ┃
+┃ • .ai Comment ça va ?      ┃
+┃ • .ai Écris un poème       ┃
+┃ • .ai Aide-moi en math     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            `.trim());
         }
 
-        await reply(`🧠 *OpenAI Response:*\n\n${data.result}`);
-        await react("✅");
-    } catch (e) {
-        console.error("Error in OpenAI command:", e);
-        await react("❌");
-        reply("An error occurred while communicating with OpenAI.");
-    }
-});
+        const question = args.join(' ');
+        
+        // Utilisation d'une API fiable
+        const response = await axios.get(`https://api.bk9.fun/ai/gemini`, {
+            params: { q: question }
+        });
 
-ven({
-    pattern: "deepseek",
-    alias: ["deep", "seekai"],
-    desc: "Chat with DeepSeek AI",
-    category: "ai",
-    react: "🧠",
-    filename: __filename
-},
-async (conn, mek, m, { from, args, q, reply, react }) => {
-    try {
-        if (!q) return reply("Please provide a message for DeepSeek AI.\nExample: `.deepseek Hello`");
+        if (response.data && response.data.BK9) {
+            const aiResponse = response.data.BK9;
+            
+            const formattedResponse = `
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🤖 𝗥𝗘𝗣𝗢𝗡𝗦𝗘 𝗔𝗜          ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ 👤 Question: ${question.substring(0, 20)}${question.length > 20 ? '...' : ''}
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-        const apiUrl = `https://api.ryzendesu.vip/api/ai/deepseek?text=${encodeURIComponent(q)}`;
-        const { data } = await axios.get(apiUrl);
+${aiResponse}
 
-        if (!data || !data.answer) {
-            await react("❌");
-            return reply("DeepSeek AI failed to respond. Please try again later.");
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ 🔄 Nouvelle question ?      ┃
+┃ Tapez: .ai [votre question] ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            `.trim();
+
+            await conn.sendMessage(from, {
+                text: formattedResponse,
+                contextInfo: {
+                    forwardingScore: 999,
+                    isForwarded: true,
+                    forwardedNewsletterMessageInfo: {
+                        newsletterJid: '120363400575205721@newsletter',
+                        newsletterName: '𝗛𝗜𝗦𝗢𝗞𝗔-𝗠𝗗',
+                        serverMessageId: 143
+                    }
+                }
+            }, { quoted: mek });
+        } else {
+            throw new Error('Réponse API invalide');
         }
-
-        await reply(`🧠 *DeepSeek AI Response:*\n\n${data.answer}`);
-        await react("✅");
-    } catch (e) {
-        console.error("Error in DeepSeek AI command:", e);
-        await react("❌");
-        reply("An error occurred while communicating with DeepSeek AI.");
+    } catch (error) {
+        console.error('Erreur AI:', error);
+        reply(`
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ ❌ 𝗘𝗥𝗥𝗘𝗨𝗥 𝗔𝗜          ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ 🔄 Service temporairement   ┃
+┃    indisponible            ┃
+┃                           ┃
+┃ 💡 Réessayez plus tard     ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+        `.trim());
     }
 });
