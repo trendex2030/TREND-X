@@ -1,6 +1,6 @@
 var commands = [];
 
-function ven(info, func) {
+function cmd(info, func) {
     var data = info;
     data.function = func;
     if (!data.dontAddCommandList) data.dontAddCommandList = false;
@@ -13,10 +13,9 @@ function ven(info, func) {
 }
 
 module.exports = {
-    cmd: ven,             // ✅ Allow importing with: const { cmd } = require('./trend')
-    ven,
-    AddCommand: ven,
-    Function: ven,
-    Module: ven,
-    commands,
+    cmd,              // ✅ Primary export for command registration
+    AddCommand: cmd,  // Optional aliases
+    Function: cmd,
+    Module: cmd,
+    commands          // List of all registered commands
 };
