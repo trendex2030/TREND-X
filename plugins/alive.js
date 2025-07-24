@@ -1,4 +1,4 @@
-const { cmd } = require('../command');
+const { cmd } = require('../trend');
 const os = require("os");
 const { runtime } = require('../lib/functions');
 const config = require('../config');
