@@ -1,5 +1,5 @@
 const fetch = require('node-fetch'); 
-const { cmd, commands } = require('../command');
+const { cmd, commands } = require('../trend');
 const { fetchJson } = require('../lib/functions');
 const { translate } = require('@vitalets/google-translate-api');
 const axios = require('axios')
