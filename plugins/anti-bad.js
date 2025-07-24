@@ -1,5 +1,5 @@
-const { cmd } = require('../command');
-const config = require("../config");
+const { cmd } = require('../trend');
+const config = require("../settings");
 
 // Anti-Bad Words System
 cmd({
