@@ -1,7 +1,7 @@
-const { cmd } = require('../trend');
+const { cmd } = require('../command');
 const os = require("os");
 const { runtime } = require('../lib/functions');
-const config = require('../settings');
+const config = require('../config');
 
 cmd({
     pattern: "alive",
