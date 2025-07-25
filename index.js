@@ -28,7 +28,7 @@ const { AntiDelDB, initializeAntiDeleteSettings, setAnti, getAnti, getAllAntiDel
 const fs = require('fs')
 const ff = require('fluent-ffmpeg')
 const P = require('pino')
-const config = require('./settings')
+const config = require('./config')
 const GroupEvents = require('./lib/groupevents')
 const qrcode = require('qrcode-terminal')
 const StickersTypes = require('wa-sticker-formatter')
