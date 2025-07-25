@@ -69,7 +69,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const message = await conn.sendMessage(from, { text: '*PINGING...*' })
         const endTime = Date.now()
         const ping = endTime - startTime
-        await conn.sendMessage(from, { text: `*🔥 ʜᴜɴᴛᴇʀ xᴍᴅ ꜱᴘᴇᴇᴅ : ${ping}ms*` }, { quoted: message })
+        await conn.sendMessage(from, { text: `*🔥 TREND-X ꜱᴘᴇᴇᴅ : ${ping}ms*` }, { quoted: message })
     } catch (e) {
         console.log(e)
         reply(`${e}`)
