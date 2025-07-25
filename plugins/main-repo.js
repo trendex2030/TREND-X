@@ -11,7 +11,7 @@ cmd({
     filename: __filename,
 },
 async (conn, mek, m, { from, reply }) => {
-    const githubRepoURL = 'https://github.com/Obedweb/Hunter-Xmd1';
+    const githubRepoURL = 'https://github.com/trendex2030/TREND-X';
 
     try {
         // Extract username and repo name from the URL
@@ -38,8 +38,8 @@ async (conn, mek, m, { from, reply }) => {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363416335506023@newsletter',
-                    newsletterName: 'ʜᴜɴᴛᴇʀ xᴍᴅ',
+                    newsletterJid: '120363401765045963@newsletter',
+                    newsletterName: 'TREND-X',
                     serverMessageId: 143
                 }
             }
