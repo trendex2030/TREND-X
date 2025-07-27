@@ -1,15 +1,15 @@
 {
-  "name": "TREND X",
-  "version": "1.0.0",
-  "description": "A WhatsApp Bot Created By Hunterxmd",
+  "name": "TREND-X",
+  "version": "3.0.0",
+  "description": "A WhatsApp Bot Created By trendex",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name CRISS-AI",
+    "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
     "stop": "pm2 stop TREND-X",
     "restart": "pm2 restart TREND-X"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro@8.5.12",
+    "@whiskeysockets/baileys": "^6.7.18",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@dark-yasiya/yt-dl.js": "1.0.5",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
@@ -19,7 +19,6 @@
     "pm2": "^6.0.5",
     "util": "^0.12.4",
     "express": "latest",
-    "moment-timezone": "^0.5.45",
     "axios": "^1.2.5",
     "crypto-digest-sync": "^1.0.0",
     "crypto-js": "latest",
