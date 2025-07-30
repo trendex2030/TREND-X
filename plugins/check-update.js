@@ -27,7 +27,7 @@ cmd({
     }
 
     // Fetch latest version data from GitHub
-    const rawVersionUrl = 'https://raw.githubusercontent.com/criss-vevo/CRISS-MD/main/data/version.json';
+    const rawVersionUrl = 'https://api.github.com/repos/trendex2030/TREND-X/commits/main';
     let latestVersion = 'Unknown';
     let latestChangelog = 'No changelog available.';
     try {
