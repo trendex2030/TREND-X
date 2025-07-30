@@ -5,7 +5,7 @@ cmd({
     pattern: "pair",
     alias: ["getpair", "clonebot"],
     react: "✅",
-    desc: "Get pairing code for CRISS-AI bot",
+    desc: "Get pairing code for TREND-X bot",
     category: "download",
     use: ".pair +255687068XXX",
     filename: __filename
@@ -49,7 +49,7 @@ cmd({
     pattern: "pair2",
     alias: ["getpair2", "clonebot2"],
     react: "✅",
-    desc: "Get pairing code for KHAN-MD bot",
+    desc: "Get pairing code for TREND-X bot",
     category: "download",
     use: ".pair 255687068XXX",
     filename: __filename
@@ -71,7 +71,7 @@ cmd({
         }
 
         const pairingCode = response.data.code;
-        const doneMessage = "> *CRISS-AI PAIRING COMPLETED*";
+        const doneMessage = "> *TREND-AI PAIRING COMPLETED*";
 
         // Send initial message with formatting
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${pairingCode}`);
