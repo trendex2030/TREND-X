@@ -11,23 +11,22 @@ cmd({
 async (conn, mek, m, {
     from, q, isGroup, isBotAdmins, reply, quoted, senderNumber
 }) => {
-    // Check if the command is used in a group
     if (!isGroup) return reply("❌ This command can only be used in groups.");
 
-    // Get the bot owner's number dynamically from conn.user.id
-    const botOwner = conn.user.id.split(":")[0];
-    if (senderNumber !== botOwner) {
-        return reply("❌ Only the bot owner can use this command.");
+    const isOwner = global.owner.includes(senderNumber.replace(/[^0-9]/g, ''));
+    const isGroupAdmin = m.isGroupAdmin || false;
+
+    if (!isOwner && !isGroupAdmin) {
+        return reply("❌ Only the bot owner or a group admin can use this command.");
     }
 
-    // Check if the bot is an admin
     if (!isBotAdmins) return reply("❌ I need to be an admin to use this command.");
 
     let number;
     if (m.quoted) {
-        number = m.quoted.sender.split("@")[0]; // If replying to a message, get the sender's number
+        number = m.quoted.sender.split("@")[0];
     } else if (q && q.includes("@")) {
-        number = q.replace(/[@\s]/g, ''); // If mentioning a user
+        number = q.replace(/[@\s]/g, '');
     } else {
         return reply("❌ Please reply to a message or mention a user to remove.");
     }
