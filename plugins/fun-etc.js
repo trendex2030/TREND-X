@@ -3,7 +3,7 @@ const { cmd } = require("../command");
 const { fetchGif, gifToVideo } = require("../lib/fetchGif");
 
 cmd({
-  pattern: "marige",
+  pattern: "marriage",
   alias: ["shadi", "marriage", "wedding"],
   desc: "Randomly pairs two users for marriage with a wedding GIF",
   react: "💍",
