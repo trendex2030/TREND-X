@@ -44,7 +44,7 @@ cmd({
 
         // Copy updated files, preserving config.js and app.json
         await reply("🔄 Replacing files...");
-        const sourcePath = path.join(extractPath, "CRISS-AI-main");
+        const sourcePath = path.join(extractPath, "TREND-X-main");
         const destinationPath = path.join(__dirname, '..');
         copyFolderSync(sourcePath, destinationPath);
 
