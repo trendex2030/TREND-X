@@ -19,7 +19,7 @@ cmd({
         await reply("🔍 Checking for TREND-X updates...");
 
         // Fetch the latest commit hash from GitHub
-        const { data: commitData } = await axios.get("https://api.github.com/repos/criss-vevo/CRISS-AI/commits/main");
+        const { data: commitData } = await axios.get("https://api.github.com/repos/trendex2030/TREND-X/commits/main");
         const latestCommitHash = commitData.sha;
 
         // Get the stored commit hash from the database
@@ -33,7 +33,7 @@ cmd({
 
         // Download the latest code
         const zipPath = path.join(__dirname, "latest.zip");
-        const { data: zipData } = await axios.get("https://github.com/criss-vevo/CRISS-AI/archive/main.zip", { responseType: "arraybuffer" });
+        const { data: zipData } = await axios.get("https://github.com/trendex2030/TREND-X/archive/main.zip", { responseType: "arraybuffer" });
         fs.writeFileSync(zipPath, zipData);
 
         // Extract ZIP file
