@@ -19,7 +19,7 @@ cmd({
         await reply("🔍 Checking for TREND-X updates...");
 
         // Fetch the latest commit hash from GitHub
-        const { data: commitData } = await axios.get("https://api.github.com/repos/trendex2030/TREND-X/commits/main");
+        const { data: commitData } = await axios.get("https://api.github.com/repos/trendex2030/TREND-X-X/commits/main");
         const latestCommitHash = commitData.sha;
 
         // Get the stored commit hash from the database
