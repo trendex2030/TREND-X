@@ -4,7 +4,7 @@ const os = require("os");
 const { runtime } = require('../lib/functions');
 
 cmd({
-    pattern: "menu3",
+    pattern: "menu",
     desc: "Show interactive menu system",
     category: "menu",
     react: "🧾",
@@ -375,7 +375,7 @@ cmd({
                     await conn.sendMessage(
                         senderID,
                         {
-                            image: { url: config.MENU_IMAGE_URL || 'https://res.cloudinary.com/dgy2dutjs/image/upload/v1751624587/url.crissvevo.co.tz/IMG_2353_fze42l.jpg' },
+                            image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/adymbp.jpg' },
                             caption: selectedMenu.content,
                             contextInfo: contextInfo
                         },
