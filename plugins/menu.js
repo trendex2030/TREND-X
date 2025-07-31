@@ -48,7 +48,7 @@ cmd({
             forwardingScore: 999,
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
-                newsletterJid: '120363416335506023@newsletter',
+                newsletterJid: '120363401765045963@newsletter',
                 newsletterName: config.OWNER_NAME,
                 serverMessageId: 143
             }
@@ -57,7 +57,7 @@ cmd({
         const sentMsg = await conn.sendMessage(
             from,
             {
-                image: { url: config.MENU_IMAGE_URL || 'https://res.cloudinary.com/dgy2dutjs/image/upload/v1751659999/url.crissvevo.co.tz/%E1%B4%8F%CA%99%E1%B4%87%E1%B4%85%E1%B4%9B%E1%B4%87%E1%B4%84%CA%9C1_pl1cki.jpg' },
+                image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/adymbp.jpg' },
                 caption: menuCaption,
                 contextInfo: contextInfo
             },
@@ -375,7 +375,7 @@ cmd({
                     await conn.sendMessage(
                         senderID,
                         {
-                            image: { url: config.MENU_IMAGE_URL || 'https://res.cloudinary.com/dgy2dutjs/image/upload/v1751659999/url.crissvevo.co.tz/%E1%B4%8F%CA%99%E1%B4%87%E1%B4%85%E1%B4%9B%E1%B4%87%E1%B4%84%CA%9C1_pl1cki.jpg' },
+                            image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/adymbp.jpg' },
                             caption: selectedMenu.content,
                             contextInfo: contextInfo
                         },
