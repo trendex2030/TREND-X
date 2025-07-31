@@ -6,7 +6,7 @@ const axios = require('axios');
 const fs = require('fs');
 
 cmd({
-    pattern: "menu",
+    pattern: "menu2",
     desc: "menu the bot",
     category: "menu",
     react: "⚡",
