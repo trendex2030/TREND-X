@@ -2,14 +2,14 @@ const config = require('../config');
 const { cmd, commands } = require('../command');
 
 cmd({
-    pattern: "ping2",
+    pattern: "ping",
     alias: ["speed","pong"],use: '.ping',
     desc: "Check bot's response time.",
     category: "main",
     react: "⚡",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, sender, reply, }) => {
+async (conn, mek, m, { from, quoted, sender, reply }) => {
     try {
         const start = new Date().getTime();
 
@@ -32,7 +32,7 @@ async (conn, mek, m, { from, quoted, sender, reply, }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const text = `> *TREND-X ꜱᴘᴇᴇᴅ: ${responseTime.toFixed(2)}ms ${reactionEmoji}*`;
+        const text = `> *TREND-𝐗: ${responseTime.toFixed(2)}ms ${reactionEmoji}*`;
 
         await conn.sendMessage(from, {
             text,
@@ -42,7 +42,7 @@ async (conn, mek, m, { from, quoted, sender, reply, }) => {
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363401765045963@newsletter',
-                    newsletterName: "TREND-X",
+                    newsletterName: "TREND-X 👻",
                     serverMessageId: 143
                 }
             }
@@ -57,7 +57,7 @@ async (conn, mek, m, { from, quoted, sender, reply, }) => {
 // ping2 
 
 cmd({
-    pattern: "ping",
+    pattern: "ping2",
     desc: "Check bot's response time.",
     category: "main",
     react: "🍂",
@@ -69,7 +69,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         const message = await conn.sendMessage(from, { text: '*PINGING...*' })
         const endTime = Date.now()
         const ping = endTime - startTime
-        await conn.sendMessage(from, { text: `*🔥 TREND-X ꜱᴘᴇᴇᴅ : ${ping}ms*` }, { quoted: message })
+        await conn.sendMessage(from, { text: `*🔥 TREND-X SPEED : ${ping}ms*` }, { quoted: message })
     } catch (e) {
         console.log(e)
         reply(`${e}`)
