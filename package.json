@@ -1,7 +1,7 @@
 {
   "name": "TREND-X",
   "version": "3.0.0",
-  "description": "A WhatsApp Bot Created By trendex",
+  "description": "A WhatsApp Bot Created By TREND-X",
   "main": "index.js",
   "scripts": {
     "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
