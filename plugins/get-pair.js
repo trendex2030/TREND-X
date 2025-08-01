@@ -5,7 +5,7 @@ cmd({
     pattern: "pair",
     alias: ["getpair", "clonebot"],
     react: "✅",
-    desc: "Get pairing code for ʜᴜɴᴛᴇʀ xᴍᴅ ",
+    desc: "Get pairing code for TREND-X ",
     category: "download",
     use: ".pair +255687068XXX",
     filename: __filename
@@ -20,14 +20,14 @@ cmd({
         }
 
         // Make API request to get pairing code
-        const response = await axios.get(`https://hunterxmd-pair2.onrender.com?phone=${encodeURIComponent(phoneNumber)}`);
+        const response = await axios.get(`https://trend-x-pair-bffdb4fc329f.herokuapp.com?phone=${encodeURIComponent(phoneNumber)}`);
         
         if (!response.data || !response.data.code) {
             return await reply("❌ Failed to retrieve pairing code. Please try again later.");
         }
 
         const pairingCode = response.data.code;
-        const doneMessage = "> *ʜᴜɴᴛᴇʀ xᴍᴅ PAIRING COMPLETED*";
+        const doneMessage = "> *TREND-X PAIRING COMPLETED*";
 
         // Send initial message with formatting
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${pairingCode}`);
@@ -49,7 +49,7 @@ cmd({
     pattern: "pair2",
     alias: ["getpair2", "clonebot2"],
     react: "✅",
-    desc: "Get pairing code for ʜᴜɴᴛᴇʀ xᴍᴅ bot",
+    desc: "Get pairing code for TREND-X bot",
     category: "download",
     use: ".pair 255687068XXX",
     filename: __filename
@@ -64,14 +64,14 @@ cmd({
         }
 
         // Make API request to get pairing code
-        const response = await axios.get(`https://hunterxmd-pair2.onrender.com/pair?phone=${encodeURIComponent(phoneNumber)}`);
+        const response = await axios.get(`https://trend-x-pair-bffdb4fc329f.herokuapp.com/pair?phone=${encodeURIComponent(phoneNumber)}`);
         
         if (!response.data || !response.data.code) {
             return await reply("❌ Failed to retrieve pairing code. Please try again later.");
         }
 
         const pairingCode = response.data.code;
-        const doneMessage = "> *ʜᴜɴᴛᴇʀ xᴍᴅ PAIRING COMPLETED*";
+        const doneMessage = "> *TREND-X PAIRING COMPLETED*";
 
         // Send initial message with formatting
         await reply(`${doneMessage}\n\n*Your pairing code is:* ${pairingCode}`);
