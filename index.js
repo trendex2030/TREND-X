@@ -12,7 +12,9 @@ import { Handler, Callupdate, GroupUpdate } from './src/event/index.js';
 import express from 'express';
 import pino from 'pino';
 import fs from 'fs';
-const NodeCache = (await import('node-cache')).default;
+import LRU from 'lru-cache';
+
+const msgRetryCounterCache = new LRU({ max: 500 });
 import path from 'path';
 import chalk from 'chalk';
 import moment from 'moment-timezone';
