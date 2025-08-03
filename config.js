@@ -1,82 +1,19 @@
-const fs = require('fs');
-if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
-
-function convertToBool(text, fault = 'true') {
-    return text === fault ? true : false;
-}
+// config.cjs
 module.exports = {
-SESSION_ID: process.env.SESSION_ID || "",
-// add your Session Id 
-AUTO_STATUS_SEEN: process.env.AUTO_STATUS_SEEN || "true",
-// make true or false status auto seen
-AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY || "true",
-// make true if you want auto reply on status 
-AUTO_STATUS_REACT: process.env.AUTO_STATUS_REACT || "true",
-// make true if you want auto reply on status 
-AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*SEEN YOUR STATUS BY TREND-X🤍*",
-// set the auto reply massage on status reply  
-WELCOME: process.env.WELCOME || "false",
-// true if want welcome and goodbye msg in groups    
-ADMIN_EVENTS: process.env.ADMIN_EVENTS || "true",
-// make true to know who dismiss or promoted a member in group
-ANTI_LINK: process.env.ANTI_LINK || "true",
-// make anti link true,false for groups 
-MENTION_REPLY: process.env.MENTION_REPLY || "false",
-// make true if want auto voice reply if someone menetion you 
-MENU_IMAGE_URL: process.env.MENU_IMAGE_URL || "https://files.catbox.moe/adymbp.jpg",
-// add custom menu and mention reply image url
-PREFIX: process.env.PREFIX || ".",
-// add your prifix for bot   
-BOT_NAME: process.env.BOT_NAME || "TREND-X",
-// add bot namw here for menu
-STICKER_NAME: process.env.STICKER_NAME || "TREND-X",
-// type sticker pack name 
-CUSTOM_REACT: process.env.CUSTOM_REACT || "false",
-// make this true for custum emoji react    
-CUSTOM_REACT_EMOJIS: process.env.CUSTOM_REACT_EMOJIS || "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍",
-// chose custom react emojis by yourself 
-DELETE_LINKS: process.env.DELETE_LINKS || "true",
-// automatic delete links witho remove member 
-OWNER_NUMBER: process.env.OWNER_NUMBER || "254734939236",
-// add your bot owner number
-OWNER_NAME: process.env.OWNER_NAME || "TRENDEX",
-// add bot owner name
-DESCRIPTION: process.env.DESCRIPTION || "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴏʙᴇᴅᴛᴇᴄʜ*",
-// add bot owner name    
-ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/adymbp.jpg",
-// add img for alive msg
-LIVE_MSG: process.env.LIVE_MSG || "> Zinda Hun Yar *TREND-X*⚡",
-// add alive msg here 
-READ_MESSAGE: process.env.READ_MESSAGE || "false",
-// Turn true or false for automatic read msgs
-AUTO_REACT: process.env.AUTO_REACT || "false",
-// make this true or false for auto react on all msgs
-ANTI_BAD: process.env.ANTI_BAD || "true",
-// false or true for anti bad words  
-MODE: process.env.MODE || "public",
-// make bot public-private-inbox-group 
-ANTI_LINK_KICK: process.env.ANTI_LINK_KICK || "true",
-// make anti link true,false for groups 
-AUTO_VOICE: process.env.AUTO_VOICE || "false",
-// make true for send automatic voices
-AUTO_STICKER: process.env.AUTO_STICKER || "false",
-// make true for automatic stickers 
-AUTO_REPLY: process.env.AUTO_REPLY || "false",
-// make true or false automatic text reply 
-ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "true",
-// maks true for always online 
-PUBLIC_MODE: process.env.PUBLIC_MODE || "true",
-// make false if want private mod
-AUTO_TYPING: process.env.AUTO_TYPING || "true",
-// true for automatic show typing   
-READ_CMD: process.env.READ_CMD || "false",
-// true if want mark commands as read 
-DEV: process.env.DEV || "254734939236",
-//replace with your whatsapp number        
-ANTI_VV: process.env.ANTI_VV || "true",
-// true for anti once view 
-ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "log", 
-// change it to 'same' if you want to resend deleted message in same chat 
-AUTO_RECORDING: process.env.AUTO_RECORDING || "false"
-// make it true for auto recoding 
+  SESSION_ID: "trend-x~eyJub2lzZUtleSI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoib1AxcHMxUGZkb05vcHRoVkFzL3U1aVVaNzAvVDZEZlNVTFZDTzJPd2NXST0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiSmF4c20yY21xK2pGbXNkNTdKNzhmNHlzcDNwN0x5U0FmeE9VZDhaK21pbz0ifX0sInBhaXJpbmdFcGhlbWVyYWxLZXlQYWlyIjp7InByaXZhdGUiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJXQ0szY3Q2WVU1SVpYRTJ4T0gwZDk5NHN3dGU1REdqY2Z0ZWtxMmlyaEgwPSJ9LCJwdWJsaWMiOnsidHlwZSI6IkJ1ZmZlciIsImRhdGEiOiJXQjc1TmlCWFkxS0NWS2xGdzArYk85TDg0d2MrbndGd1J5a2pBZEsrR21JPSJ9fSwic2lnbmVkSWRlbnRpdHlLZXkiOnsicHJpdmF0ZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IitDbXczZkpkWTB6aHlXZkEzcGJDSDZBQkVkTzFMZHJlV3M4QjlqSGd2RWM9In0sInB1YmxpYyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6ImhRekxJUDhxZHVZbjRRaVRHRmxyaHQwL1lJUWVUQXhZdENab3hMcWJKMnc9In19LCJzaWduZWRQcmVLZXkiOnsia2V5UGFpciI6eyJwcml2YXRlIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiSUo5cHdPdEZPM2JldnB6dVpneS8rUVdHNy9KYktENWZtSmJNV0pXaVIwND0ifSwicHVibGljIjp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiSjJ4RzRJTm1oa1cvdmhyNGVhUlRyd1hjV0VlMVdCTEIyK0FzMDY4RG53dz0ifX0sInNpZ25hdHVyZSI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6Im50SDd0VGJ3ZHEvOWZ6Z2FaK3Y4ZTdCd3MxK2NoSWd1aUQ4Q2VXbWVpaXN5ZXB5Rm5QTDJjb280TUVlMjdidy9OQzRDR1AwREZhNXhqbUZLY3FYYkNRPT0ifSwia2V5SWQiOjF9LCJyZWdpc3RyYXRpb25JZCI6OTksImFkdlNlY3JldEtleSI6IkRocllWV0wrWW14d05CMFhXczJBOXlySGxqOWZ1S1JiUmZGZHE2Y3dyYmM9IiwicHJvY2Vzc2VkSGlzdG9yeU1lc3NhZ2VzIjpbXSwibmV4dFByZUtleUlkIjozMSwiZmlyc3RVbnVwbG9hZGVkUHJlS2V5SWQiOjMxLCJhY2NvdW50U3luY0NvdW50ZXIiOjAsImFjY291bnRTZXR0aW5ncyI6eyJ1bmFyY2hpdmVDaGF0cyI6ZmFsc2V9LCJyZWdpc3RlcmVkIjp0cnVlLCJwYWlyaW5nQ29kZSI6IlhEOVQ4QU5XIiwibWUiOnsiaWQiOiI5MjMzOTI2MTYyNjM6NTZAcy53aGF0c2FwcC5uZXQiLCJuYW1lIjoiYXJzbGFuIiwibGlkIjoiMTYzMDg5MDg1NDI3ODk2OjU2QGxpZCJ9LCJhY2NvdW50Ijp7ImRldGFpbHMiOiJDUGJZdytvQ0VPV1Jzc1FHR0FJZ0FDZ0EiLCJhY2NvdW50U2lnbmF0dXJlS2V5IjoiSmI0NmxVNEd1M2s5Z1cycG1Zak9IZVlFUGpiVGtrUWVFbGhYd09aeU9YRT0iLCJhY2NvdW50U2lnbmF0dXJlIjoiWm50Wkx4Wlg5M2hjR0lQK2djQUx5U0pJTW9IWE1jUGxOQVNSY2tQN3BMYUhoeXpCS2YzN1pqNFNEd201OGF0RkV3VlRJaGlYS2ptYU9WeVo1cGxxRFE9PSIsImRldmljZVNpZ25hdHVyZSI6IjhUQ25na2Zic0tzcEpZYkw0bTlLREJpUUYzVzJPTVJFYUF6VXVMa1RnK3h5Zm05Z29YU2hMK0VOL2t0WUR2RUt5c0lYcVVpc1IwYTQ0U2M3NW4wbkFnPT0ifSwic2lnbmFsSWRlbnRpdGllcyI6W3siaWRlbnRpZmllciI6eyJuYW1lIjoiOTIzMzkyNjE2MjYzOjU2QHMud2hhdHNhcHAubmV0IiwiZGV2aWNlSWQiOjB9LCJpZGVudGlmaWVyS2V5Ijp7InR5cGUiOiJCdWZmZXIiLCJkYXRhIjoiQlNXK09wVk9CcnQ1UFlGdHFabUl6aDNtQkQ0MjA1SkVIaEpZVjhEbWNqbHgifX1dLCJwbGF0Zm9ybSI6InNtYmEiLCJyb3V0aW5nSW5mbyI6eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6IkNBSUlDQT09In0sImxhc3RBY2NvdW50U3luY1RpbWVzdGFtcCI6MTc1NDA0MDU1MSwibGFzdFByb3BIYXNoIjoiUFdrNUIiLCJteUFwcFN0YXRlS2V5SWQiOiJBQUFBQUU3WiJ9",
+  AUTO_STATUS_SEEN: true,
+  AUTO_DL: false,
+  AUTO_READ: true,
+  AUTO_TYPING: true,
+  AUTO_RECORDING: false,
+  ALWAYS_ONLINE: false,
+  AUTO_REACT: true,
+  AUTO_BLOCK: true,
+  REJECT_CALL: false,
+  NOT_ALLOW: true,
+  MODE: "public",
+  OWNER_NAME: "trendex Official",
+  OWNER_NUMBER: "254734939236",
+  GEMINI_KEY: "AIzaSyCUPaxfIdZawsKZKqCqJcC-GWiQPCXKTDc", // Optional
+  WELCOME: true,
 };
