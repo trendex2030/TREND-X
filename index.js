@@ -12,7 +12,7 @@ import { Handler, Callupdate, GroupUpdate } from './src/event/index.js';
 import express from 'express';
 import pino from 'pino';
 import fs from 'fs';
-import NodeCache from 'node-cache';
+const NodeCache = (await import('node-cache')).default;
 import path from 'path';
 import chalk from 'chalk';
 import moment from 'moment-timezone';
