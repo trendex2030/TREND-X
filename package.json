@@ -9,8 +9,8 @@
     "restart": "pm2 restart TREND-X"
   },
   "engines": {
-    "node": "18.x",
-    "npm": "9.x"
+    "node": "20.x",
+    "npm": "10.x"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.18",
