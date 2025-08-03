@@ -1,4 +1,4 @@
-FROM node:lts-bullseye
+FROM node:18.20.2-bullseye
 
 RUN apt-get update && \
     apt-get install -y ffmpeg imagemagick webp && \
@@ -11,3 +11,4 @@ RUN npm install
 COPY . .
 
 CMD ["node", "index.js"]
+
