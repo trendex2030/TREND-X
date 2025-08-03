@@ -12,13 +12,16 @@ import { Handler, Callupdate, GroupUpdate } from './src/event/index.js';
 import express from 'express';
 import pino from 'pino';
 import fs from 'fs';
-import LRU from 'lru-cache';
-
-const msgRetryCounterCache = new LRU({ max: 500 });
 import path from 'path';
 import chalk from 'chalk';
 import moment from 'moment-timezone';
 import axios from 'axios';
+
+// ✅ Import node-cache using createRequire for ESM compatibility
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const NodeCache = require('node-cache');
+
 import pkg from './lib/autoreact.cjs';
 const { emojis, doReact } = pkg;
 
