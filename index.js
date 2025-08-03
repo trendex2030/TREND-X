@@ -12,16 +12,11 @@ import { Handler, Callupdate, GroupUpdate } from './src/event/index.js';
 import express from 'express';
 import pino from 'pino';
 import fs from 'fs';
+import NodeCache from 'node-cache';
 import path from 'path';
 import chalk from 'chalk';
 import moment from 'moment-timezone';
 import axios from 'axios';
-
-// ✅ Import node-cache using createRequire for ESM compatibility
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const NodeCache = require('node-cache');
-
 import pkg from './lib/autoreact.cjs';
 const { emojis, doReact } = pkg;
 
@@ -74,20 +69,20 @@ async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
         const { version, isLatest } = await fetchLatestBaileysVersion();
-        console.log(`🤖 TREND-X using WA v${version.join('.')}, isLatest: ${isLatest}`);
+        console.log(`🤖 Arslan-XD using WA v${version.join('.')}, isLatest: ${isLatest}`);
         
         const Matrix = makeWASocket({
             version,
             logger: pino({ level: 'silent' }),
             printQRInTerminal: useQR,
-            browser: ["TREND-X", "safari", "3.3"],
+            browser: ["trend-X", "safari", "3.3"],
             auth: state,
             getMessage: async (key) => {
                 if (store) {
                     const msg = await store.loadMessage(key.remoteJid, key.id);
                     return msg.message || undefined;
                 }
-                return { conversation: "TREND-X whatsapp user bot" };
+                return { conversation: "trend-X whatsapp user bot" };
             }
         });
 
