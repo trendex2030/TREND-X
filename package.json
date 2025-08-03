@@ -8,6 +8,10 @@
     "stop": "pm2 stop TREND-X",
     "restart": "pm2 restart TREND-X"
   },
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.18",
     "@adiwajshing/keyed-db": "^0.2.4",
