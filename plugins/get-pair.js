@@ -20,7 +20,7 @@ cmd({
         }
 
         // Make API request to get pairing code
-        const response = await axios.get(`https://trend-x-pair-bffdb4fc329f.herokuapp.com?phone=${encodeURIComponent(phoneNumber)}`);
+        const response = await axios.get(`https://trend-x-pair-50da1f009e8c.herokuapp.com/pair?phone=${encodeURIComponent(phoneNumber)}`);
         
         if (!response.data || !response.data.code) {
             return await reply("❌ Failed to retrieve pairing code. Please try again later.");
