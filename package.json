@@ -1,6 +1,7 @@
+
 {
   "name": "TREND-X",
-  "version": "3.0.0",
+  "version": "4.5.0",
   "description": "A WhatsApp Bot Created By trendex",
   "main": "index.js",
   "scripts": {
@@ -19,6 +20,7 @@
     "pm2": "^6.0.5",
     "util": "^0.12.4",
     "express": "latest",
+    "moment-timezone": "^0.5.45",
     "axios": "^1.2.5",
     "crypto-digest-sync": "^1.0.0",
     "crypto-js": "latest",
