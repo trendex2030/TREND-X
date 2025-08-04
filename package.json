@@ -14,7 +14,7 @@
     "@mrnima/facebook-downloader": "1.0.0",
     "@mrnima/tiktok-downloader": "1.0.0",
     "@vitalets/google-translate-api": "^9.2.0",
-    "@whiskeysockets/baileys": "npm:baileys-pro@^0.0.5",
+    "@whiskeysockets/baileys": "npm:baileys-pro@^2.7.18",
     "adm-zip": "^0.5.16",
     "api-dylux": "1.8.5",
     "axios": "^1.10.0",
