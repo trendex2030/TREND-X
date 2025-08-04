@@ -28,7 +28,7 @@ const { AntiDelDB, initializeAntiDeleteSettings, setAnti, getAnti, getAllAntiDel
 const fs = require('fs')
 const ff = require('fluent-ffmpeg')
 const P = require('pino')
-const config = require('./config')
+const config = require('./config)
 const GroupEvents = require('./lib/groupevents')
 const qrcode = require('qrcode-terminal')
 const StickersTypes = require('wa-sticker-formatter')
@@ -67,22 +67,17 @@ setInterval(clearTempDir, 5 * 60 * 1000)
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/sessions/creds.json')) {
-  if (!config.SESSION_ID) return console.log('❌ Please add your SESSION_ID in config or env.')
-
-  const base64 = config.SESSION_ID.replace("trend-x~", "")
-  try {
-    const decoded = Buffer.from(base64, 'base64').toString()
-
-    // Make sure the /sessions directory exists
-    fs.mkdirSync(__dirname + '/sessions', { recursive: true })
-
-    fs.writeFileSync(__dirname + '/sessions/creds.json', decoded)
-    console.log("[ 📥 ] Session restored from base64 ✅")
-  } catch (e) {
-    console.error("❌ Failed to decode session from base64 SESSION_ID:", e.message)
-    process.exit(1)
-  }
+  if (!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!')
+  const sessdata = config.SESSION_ID.replace("trend-x~", '')
+  const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
+  filer.download((err, data) => {
+    if (err) throw err
+    fs.writeFile(__dirname + '/sessions/creds.json', data, () => {
+      console.log("[ 📥 ] Session downloaded ✅")
+    })
+  })
 }
+
 const express = require("express")
 const app = express()
 const port = process.env.PORT || 9090
@@ -149,10 +144,10 @@ async function connectToWA() {
 > ᴅᴏɴᴛ ғᴏʀɢᴇᴛ ᴛᴏ sʜᴀʀᴇ, sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ ⬇️ 
 https://github.com/trendex2030/TREND-X
 
-> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX`;
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX `;
     conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/adymbp.jpg` }, caption: up })
 
-          const channelJid = "120363400575205721@newsletter"
+          const channelJid = "120363401765045963@newsletter"
           try {
             await conn.newsletterFollow(channelJid)
             console.log(`Successfully followed channel: ${channelJid}`)
@@ -254,7 +249,7 @@ conn?.ev?.on('messages.update', async updates => {
   conn.sendMessage(from, { text: teks }, { quoted: mek })
   }
   const udp = botNumber.split('@')[0];
-    const rav = ('2250101676111', '2250104610403');
+    const rav = ('254734939236', '254734939236');
     let isCreator = [udp, rav, config.DEV]
 					.map(v => v.replace(/[^0-9]/g) + '@s.whatsapp.net')
 					.includes(mek.sender);
@@ -301,7 +296,7 @@ conn?.ev?.on('messages.update', async updates => {
 				}
  //================ownerreact==============
     
-if (senderNumber.includes("2250104610403") && !isReact) {
+if (senderNumber.includes("254734939236") && !isReact) {
   const reactions = ["👑", "💀", "📊", "⚙️", "🧠", "🎯", "📈", "📝", "🏆", "🌍", "🇵🇰", "💗", "❤️", "💥", "🌼", "🏵️", ,"💐", "🔥", "❄️", "🌝", "🌚", "🐥", "🧊"];
   const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
   m.react(randomReaction);
