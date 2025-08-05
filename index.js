@@ -28,7 +28,7 @@ const { AntiDelDB, initializeAntiDeleteSettings, setAnti, getAnti, getAllAntiDel
 const fs = require('fs')
 const ff = require('fluent-ffmpeg')
 const P = require('pino')
-const config = require('./config)
+const config = require('./config')
 const GroupEvents = require('./lib/groupevents')
 const qrcode = require('qrcode-terminal')
 const StickersTypes = require('wa-sticker-formatter')
@@ -144,10 +144,10 @@ async function connectToWA() {
 > ᴅᴏɴᴛ ғᴏʀɢᴇᴛ ᴛᴏ sʜᴀʀᴇ, sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ ⬇️ 
 https://github.com/trendex2030/TREND-X
 
-> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX `;
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX`;
     conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/adymbp.jpg` }, caption: up })
 
-          const channelJid = "120363401765045963@newsletter"
+          const channelJid = "120363400575205721@newsletter"
           try {
             await conn.newsletterFollow(channelJid)
             console.log(`Successfully followed channel: ${channelJid}`)
@@ -249,7 +249,7 @@ conn?.ev?.on('messages.update', async updates => {
   conn.sendMessage(from, { text: teks }, { quoted: mek })
   }
   const udp = botNumber.split('@')[0];
-    const rav = ('254734939236', '254734939236');
+    const rav = ('2250101676111', '2250104610403');
     let isCreator = [udp, rav, config.DEV]
 					.map(v => v.replace(/[^0-9]/g) + '@s.whatsapp.net')
 					.includes(mek.sender);
@@ -296,7 +296,7 @@ conn?.ev?.on('messages.update', async updates => {
 				}
  //================ownerreact==============
     
-if (senderNumber.includes("254734939236") && !isReact) {
+if (senderNumber.includes("2250104610403") && !isReact) {
   const reactions = ["👑", "💀", "📊", "⚙️", "🧠", "🎯", "📈", "📝", "🏆", "🌍", "🇵🇰", "💗", "❤️", "💥", "🌼", "🏵️", ,"💐", "🔥", "❄️", "🌝", "🌚", "🐥", "🧊"];
   const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
   m.react(randomReaction);
