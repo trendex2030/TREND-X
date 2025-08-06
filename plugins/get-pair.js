@@ -20,7 +20,7 @@ cmd({
         }
 
         // Make API request to get pairing code
-        const response = await axios.get(`https://hunterxmd-pair2.onrender.com?phone=${encodeURIComponent(phoneNumber)}`);
+        const response = await axios.get(`https://trendx-pair-web-45f48298a80f.herokuapp.com/pair?phone=${encodeURIComponent(phoneNumber)}`);
         
         if (!response.data || !response.data.code) {
             return await reply("❌ Failed to retrieve pairing code. Please try again later.");
@@ -64,7 +64,7 @@ cmd({
         }
 
         // Make API request to get pairing code
-        const response = await axios.get(`https://hunterxmd-pair2.onrender.com/pair?phone=${encodeURIComponent(phoneNumber)}`);
+        const response = await axios.get(`https://trendx-pair-web-45f48298a80f.herokuapp.com/pair?phone=${encodeURIComponent(phoneNumber)}`);
         
         if (!response.data || !response.data.code) {
             return await reply("❌ Failed to retrieve pairing code. Please try again later.");
