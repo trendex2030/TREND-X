@@ -1,6 +1,6 @@
 {
   "name": "TREND-X",
-  "description": "Javascript WhatsApp bot made by TRENDEX",
+  "description": "An Advanced Whatsapp bot 🚀 built for fast automation, media tool, and smooth group management developed by trendex tech",
   "logo": "https://files.catbox.moe/adymbp.jpg",
   "keywords": ["TREND-X"],
   "success_url": "/",
@@ -31,20 +31,19 @@
       "value": "public"
       
     },
-    
+
+     "ANTI_DELETE": {
+      "description": "set true for show deleted messages.",
+      "required": false,
+      "value": "true"  
+    },
     
     "ALWAYS_ONLINE": {
       "description": "Make it true if want always online.",
       "required": false,
-      "value": "true"  
+      "value": "false"  
     },    
-  
-    "AUTO_VOICE": {
-      "description": "Make it true if want automatic voice reply .",
-      "required": false,
-      "value": "false"
-    }, 
-
+   
     "AUTO_REPLY": {
       "description": "Make it true if you want automatic reply.",
       "required": false,
@@ -79,14 +78,14 @@
     "AUTO_STATUS_MSG": {
       "description": "Type custom message on status reply",
       "required": true,
-      "value": "*𝚂𝙴𝙴𝙽 𝚈𝙾𝚄𝚁 𝚂𝚃𝙰𝚃𝚄𝚂 𝙱𝚈 TREND-X 💟*"
+      "value": "*SEEN YOUR STATUS BY TREND-X TECH 🇰🇪*"
    
      }, 
     
     "OWNER_NAME": {
       "description": "Type Bot Owner Name.",
       "required": false,
-      "value": "TRENDEX"
+      "value": "TREND-X"
 }, 
 
     "OWNER_NUMBER": {
@@ -99,7 +98,7 @@
     "BOT_NAME": {
       "description": "Type here the bot name.",
       "required": false,
-      "value": "TREND 𝐗"
+      "value": "TREND-X"
 
       }, 
 
@@ -120,7 +119,7 @@
     "ANTI_BAD": {
       "description": "Make it true if you want bot auto delete bad words.",
       "required": false,
-      "value": "true"
+      "value": "false"
     },
 
    "MENTION_REPLY": {
@@ -138,7 +137,7 @@
      "DESCRIPTION": {
       "description": "add caption for menu and other",
       "required": false,
-      "value": "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX*"
+      "value": "*© ᴘᴏᴡᴇʀᴇᴅ ʙʏ TRENDEX KING*"
     },
 
       "DELETE_LINKS": {
@@ -179,9 +178,9 @@
     }, 
     
     "ANTI_DEL_PATH": {
-      "description": "change it to -same- if you want to resend deleted message in same chat",
+      "description": "change it to -same- if you want to resend deleted message in same chat othwise inbox",
       "required": false,
-      "value": "log"
+      "value": "inbox"
     }, 
 
     "ADMIN_EVENTS": {
@@ -194,8 +193,12 @@
       "description": "make it true if want goodbye and welcome message in groups.",
       "required": false,
       "value": "true"
+     },
+    "ANTICALL": {
+      "description": "Make it true if you want bot to block incoming calls.",
+      "required": false,
+      "value": "true"
     },
-
     "READ_MESSAGE": {
       "description": "Make it true if you want bot read your all sms just now.",
       "required": false,
