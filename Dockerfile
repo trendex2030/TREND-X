@@ -1,19 +1,10 @@
-# Base image
-FROM node:16
+FROM node:lts
 
-# Set working directory
-WORKDIR /usr/src/app
-
-# Copy package.json and install dependencies
-COPY package*.json ./
-RUN npm install
-
-# Copy application source code
+WORKDIR /app
 COPY . .
 
-# Expose the port the app runs on
+RUN npm install
+
 EXPOSE 3000
 
-# Start the application
-CMD ["npm", "start"]
-
+CMD ["node", "index.js"]
