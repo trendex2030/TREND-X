@@ -1,23 +1,30 @@
+const axios = require('axios');
+const config = require('../config');
 const fs = require('fs');
 const path = require('path');
-const config = require('../config')
 const {cmd , commands} = require('../command')
 
-//auto reply 
-lite({
+
+// Replace this with your actual GitHub RAW JSON URL
+const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/trendex2030/TREND-X/main/all/autoreply.json';
+
+cmd({
   on: "body"
-},    
-async (conn, mek, m, { from, body, isOwner }) => {
-    const filePath = path.join(__dirname, '../all/autoreply.json');
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+},
+async (conn, mek, m, { body }) => {
+  try {
+    const res = await axios.get(GITHUB_RAW_URL);
+    const data = res.data;
+
     for (const text in data) {
-        if (body.toLowerCase() === text.toLowerCase()) {
-            
-            if (config.AUTO_REPLY === 'true') {
-                //if (isOwner) return;        
-                await m.reply(data[text])
-            
-            }
+      if (body.toLowerCase() === text.toLowerCase()) {
+        if (config.AUTO_REPLY === 'true') {
+          await m.reply(data[text]);
         }
-    }                
+        break;
+      }
+    }
+  } catch (err) {
+    console.error('Auto-reply fetch error:', err.message);
+  }
 });
