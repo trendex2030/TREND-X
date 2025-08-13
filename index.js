@@ -1,4 +1,4 @@
-const {
+Const {
   default: makeWASocket,
   useMultiFileAuthState,
   DisconnectReason,
@@ -133,12 +133,7 @@ async function connectToWA() {
           console.log('[ ✔ ] Plugins installed successfully ✅')
           console.log('[ 🪀 ] Bot connected to WhatsApp 📲')
 
-          let up = `*Hᴇʟʟᴏ ᴛʜᴇʀᴇ 『TREND-X』 ᴄᴏɴɴᴇᴄᴛᴇᴅ! 👋🏻* 
-
-*ᴋᴇᴇᴘ ᴏɴ ᴜsɪɴɢ 『TREND-X』🚩* 
-
-
-- *ʏᴏᴜʀ ʙᴏᴛ ᴘʀᴇғɪx: ➡️[ . ]*
+          let up = `*Hᴇʟʟᴏ ᴛʜᴇʀᴇ 『TREND-X』 ᴄᴏɴɴᴇᴄᴛᴇᴅ! 👋🏻* *ᴋᴇᴇᴘ ᴏɴ ᴜsɪɴɢ 『TREND-X』🚩* - *ʏᴏᴜʀ ʙᴏᴛ ᴘʀᴇғɪx: ➡️[ . ]*
 > - ʏᴏᴜ ᴄᴀɴ ᴄʜᴀɴɢᴇ ᴜʀ ᴘʀᴇғɪx ᴜsɪɴɢ ᴛʜᴇ .ᴘʀᴇғɪx ᴄᴏᴍᴍᴀɴᴅ
 
 > ᴅᴏɴᴛ ғᴏʀɢᴇᴛ ᴛᴏ sʜᴀʀᴇ, sᴛᴀʀ & ғᴏʀᴋ ᴛʜᴇ ʀᴇᴘᴏ ⬇️ 
@@ -234,11 +229,21 @@ conn.ev.on('messages.upsert', async(mek) => {
   const isGroup = from.endsWith('@g.us')
   const sender = mek.key.fromMe ? (conn.user.id.split(':')[0]+'@s.whatsapp.net' || conn.user.id) : (mek.key.participant || mek.key.remoteJid)
   const senderNumber = sender.split('@')[0]
-  const botNumber = conn.user.id.split(':')[0]
   const pushname = mek.pushName || 'Gon'
-  const isMe = sender === botNumber2 // Fixed: Direct equality check
-  const isOwner = ownerNumber.includes(senderNumber) || isMe
+  
+  // --- Start of Corrected Code ---
   const botNumber2 = await jidNormalizedUser(conn.user.id);
+  const botNumber = botNumber2.split('@')[0];
+
+  const ownerNumbers = (Array.isArray(config.OWNER_NUMBER) ? config.OWNER_NUMBER : [String(config.OWNER_NUMBER)]).map(v => String(v).replace(/[^0-9]/g, ''));
+  const devNumbers = (Array.isArray(config.DEV) ? config.DEV : [String(config.DEV)]).map(v => String(v).replace(/[^0-9]/g, ''));
+  const creatorNumbers = [...ownerNumbers, ...devNumbers, botNumber];
+
+  const isCreator = creatorNumbers.includes(senderNumber);
+  const isMe = sender === botNumber2;
+  const isOwner = isCreator || isMe;
+  // --- End of Corrected Code ---
+
   const groupMetadata = isGroup ? await conn.groupMetadata(from).catch(e => {}) : ''
   const groupName = isGroup ? groupMetadata.subject : ''
   const participants = isGroup ? await groupMetadata.participants : ''
@@ -249,16 +254,10 @@ conn.ev.on('messages.upsert', async(mek) => {
   const reply = (teks) => {
     conn.sendMessage(from, { text: teks }, { quoted: mek })
   }
-  // Fixed: Define creators with all owner numbers
-  const ownerNumbers = ['254734939236', '2250101676111', '2250104610403']; // Combined ownerNumber and rav
-  const devNumbers = config.DEV ? (Array.isArray(config.DEV) ? config.DEV : [String(config.DEV).replace(/[^0-9]/g, '')]) : [];
-  let isCreator = [...ownerNumbers, ...devNumbers, botNumber]
-      .map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net')
-      .includes(conn.decodeJid(sender)); // Normalize sender JID
-
+  
   // Handle % command (JavaScript eval)
   if (isCreator && budy.startsWith('%')) {
-    let code = budy.slice(1); // Fixed: Slice after single-character prefix
+    let code = budy.slice(1);
     if (!code) {
       reply('Provide me with a query to run Master!');
       return;
@@ -274,7 +273,7 @@ conn.ev.on('messages.upsert', async(mek) => {
 
   // Handle $ command (async JavaScript eval)
   if (isCreator && budy.startsWith('$')) {
-    let code = budy.slice(1); // Fixed: Slice after single-character prefix
+    let code = budy.slice(1);
     if (!code) {
       reply('Provide me with a query to run Master!');
       return;
@@ -292,7 +291,7 @@ conn.ev.on('messages.upsert', async(mek) => {
   }
 
   //================ownerreact==============
-  if (isCreator && !isReact) { // Fixed: Use isCreator for consistency
+  if (isCreator && !isReact) { 
     const reactions = ["👑", "💀", "📊", "⚙️", "🧠", "🎯", "📈", "📝", "🏆", "🌍", "🇵🇰", "💗", "❤️", "💥", "🌼", "🏵️", "💐", "🔥", "❄️", "🌝", "🌚", "🐥", "🧊"];
     const randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
     m.react(randomReaction);
@@ -813,3 +812,4 @@ conn.ev.on('messages.upsert', async(mek) => {
   setTimeout(() => {
   connectToWA()
   }, 8000);
+
