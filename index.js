@@ -812,4 +812,3 @@ conn.ev.on('messages.upsert', async(mek) => {
   setTimeout(() => {
   connectToWA()
   }, 8000);
-
