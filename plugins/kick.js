@@ -9,22 +9,25 @@ cmd({
     filename: __filename
 },
 async (conn, mek, m, {
-    from, q, isGroup, isBotAdmins, isAdmins, reply, quoted
+    from, q, isGroup, isBotAdmins, reply, quoted, senderNumber
 }) => {
-
+    // Check if the command is used in a group
     if (!isGroup) return reply("❌ This command can only be used in groups.");
-    
-    // Check if sender is an admin in THIS group
-    if (!isAdmins) return reply("❌ You must be a group admin to use this command.");
 
-    // Check if bot is admin in THIS group
-    if (!isBotAdmins) return reply("❌ I need to be an admin to remove members.");
+    // Get the bot owner's number dynamically from conn.user.id
+    const botOwner = conn.user.id.split(":")[0];
+    if (senderNumber !== botOwner) {
+        return reply("❌ Only the bot owner can use this command.");
+    }
+
+    // Check if the bot is an admin
+    if (!isBotAdmins) return reply("❌ I need to be an admin to use this command.");
 
     let number;
     if (m.quoted) {
-        number = m.quoted.sender.split("@")[0];
+        number = m.quoted.sender.split("@")[0]; // If replying to a message, get the sender's number
     } else if (q && q.includes("@")) {
-        number = q.replace(/[@\s]/g, '');
+        number = q.replace(/[@\s]/g, ''); // If mentioning a user
     } else {
         return reply("❌ Please reply to a message or mention a user to remove.");
     }
