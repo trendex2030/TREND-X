@@ -18,7 +18,7 @@ async (Void, citel, text) => {
             return await citel.reply("❌ Please provide a valid phone number without `+`\nExample: `.pair 254700123456`");
         }
 
-        const res = await axios.get(`https://trendx-pair-web-45f48298a80f.herokuapp.com/pair=${encodeURIComponent(phoneNumber)}`);
+        const res = await axios.get(`https://trendex-pair-web-01fd30aee5ef.herokuapp.com/pair=${encodeURIComponent(phoneNumber)}`);
         if (!res.data || !res.data.code) {
             return await citel.reply("❌ Failed to retrieve pairing code. Please try again later.");
         }
