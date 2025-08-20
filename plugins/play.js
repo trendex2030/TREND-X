@@ -1,3 +1,116 @@
-// 𝐏𝐑𝐎𝐏𝐄𝐑𝐓𝐘 𝐎𝐅 𝐂𝐀𝐒𝐄𝐘𝐑𝐇𝐎𝐃𝐄𝐒 𝐓𝐄𝐂𝐇💫
+const { cmd } = require("../command");
+const config = require("../config");
 
-const _0x415d20=_0x2a50;(function(_0xee957d,_0x4e54d4){const _0x2022d8=_0x2a50,_0x14e2b9=_0xee957d();while(!![]){try{const _0x965435=parseInt(_0x2022d8(0x95))/0x1+-parseInt(_0x2022d8(0x91))/0x2+-parseInt(_0x2022d8(0x83))/0x3+parseInt(_0x2022d8(0x88))/0x4*(-parseInt(_0x2022d8(0x86))/0x5)+-parseInt(_0x2022d8(0x93))/0x6*(parseInt(_0x2022d8(0x7f))/0x7)+parseInt(_0x2022d8(0x85))/0x8+parseInt(_0x2022d8(0x8f))/0x9*(parseInt(_0x2022d8(0x89))/0xa);if(_0x965435===_0x4e54d4)break;else _0x14e2b9['push'](_0x14e2b9['shift']());}catch(_0xb18b8d){_0x14e2b9['push'](_0x14e2b9['shift']());}}}(_0x3906,0x80bb1));function _0x2a50(_0x2c713b,_0x5360fe){const _0x3906b1=_0x3906();return _0x2a50=function(_0x2a50af,_0x308d61){_0x2a50af=_0x2a50af-0x7e;let _0x199ba2=_0x3906b1[_0x2a50af];return _0x199ba2;},_0x2a50(_0x2c713b,_0x5360fe);}const {cmd}=require(_0x415d20(0x8d)),config=require(_0x415d20(0x8c)),recentCallers=new Set();function _0x3906(){const _0x5eb3ea=['body','850112TpyjVd','20jsTHqC','call','430204PcNANh','30zXVnAQ','⚠️\x20Error:\x20','ANTI_CALL','../config','../command','status','5991003VzoUSX','delete','956020fZxAnj','from','598008kblLFx','true','315474uDvymX','error','28mOLwiD','message','isGroup','```Hii\x20this\x20is\x20TREND-X\x20a\x20Personal\x20Assistant!!\x20Sorry\x20for\x20now,\x20we\x20cannot\x20receive\x20calls,\x20whether\x20in\x20a\x20group\x20or\x20personal\x20if\x20you\x20need\x20help\x20or\x20request\x20features\x20please\x20chat\x20owner```\x20⚠️','1753716qqxwhi'];_0x3906=function(){return _0x5eb3ea;};return _0x3906();}cmd({'on':_0x415d20(0x84)},async(_0x1cde1a,_0x22e6cc,_0x43f466,{from:_0x1a2f40})=>{const _0x2375aa=_0x415d20;try{_0x1cde1a['ev']['on'](_0x2375aa(0x87),async _0x2a5fec=>{const _0x41f786=_0x2375aa;if(config[_0x41f786(0x8b)]!==_0x41f786(0x94))return;for(const _0x155e40 of _0x2a5fec){_0x155e40[_0x41f786(0x8e)]==='offer'&&!_0x155e40[_0x41f786(0x81)]&&(await _0x1cde1a['rejectCall'](_0x155e40['id'],_0x155e40['from']),!recentCallers['has'](_0x155e40['from'])&&(recentCallers['add'](_0x155e40[_0x41f786(0x92)]),await _0x1cde1a['sendMessage'](_0x155e40[_0x41f786(0x92)],{'text':_0x41f786(0x82),'mentions':[_0x155e40[_0x41f786(0x92)]]}),setTimeout(()=>recentCallers[_0x41f786(0x90)](_0x155e40[_0x41f786(0x92)]),0xa*0x3c*0x3e8)));}});}catch(_0x9e871c){console[_0x2375aa(0x7e)](_0x9e871c),await _0x1cde1a['sendMessage'](_0x1a2f40,{'text':_0x2375aa(0x8a)+_0x9e871c[_0x2375aa(0x80)]},{'quoted':_0x43f466});}});
+const recentCallers = new Set();
+
+// Anti-call event handler
+cmd({ on: "body" }, async (client, message, chat, { from: sender }) => {
+  try {
+    client.ev.on("call", async (callData) => {
+      if (!config.ANTI_CALL) return;
+
+      for (const call of callData) {
+        if (call.status === 'offer' && !call.isGroup) {
+          await client.rejectCall(call.id, call.from);
+          
+          if (!recentCallers.has(call.from)) {
+            recentCallers.add(call.from);
+            
+            await client.sendMessage(call.from, {
+              text: "```Hii this is TREND-X a Personal Assistant!! Sorry for now, we cannot receive calls, whether in a group or personal if you need help or request features please chat owner``` ⚠️",
+              mentions: [call.from]
+            });
+            
+            setTimeout(() => recentCallers.delete(call.from), 600000);
+          }
+        }
+      }
+    });
+  } catch (error) {
+    console.error("Call rejection error:", error);
+    await client.sendMessage(sender, { text: "⚠️ Error: " + error.message }, { quoted: chat });
+  }
+});
+
+// Anti-call command with combined image+newsletter response
+cmd({
+    pattern: "anticall",
+    alias: ["callblock", "togglecall"],
+    desc: "Toggle call blocking feature",
+    category: "owner",
+    react: "📞",
+    filename: __filename,
+    fromMe: true
+},
+async (client, message, m, { isOwner, from, sender, args, prefix }) => {
+    try {
+        if (!isOwner) {
+            return client.sendMessage(from, { 
+                text: "🚫 Owner-only command",
+                mentions: [sender]
+            }, { quoted: message });
+        }
+
+        const action = args[0]?.toLowerCase() || 'status';
+        let statusText, reaction = "📞", additionalInfo = "";
+
+        switch (action) {
+            case 'on':
+                if (config.ANTI_CALL) {
+                    statusText = "Anti-call is already *enabled*✅";
+                    reaction = "ℹ️";
+                } else {
+                    config.ANTI_CALL = true;
+                    statusText = "Anti-call has been *enabled*!";
+                    reaction = "✅";
+                    additionalInfo = "Calls will be automatically rejected🔇";
+                }
+                break;
+                
+            case 'off':
+                if (!config.ANTI_CALL) {
+                    statusText = "Anti-call is already *disabled*📳!";
+                    reaction = "ℹ️";
+                } else {
+                    config.ANTI_CALL = false;
+                    statusText = "Anti-call has been *disabled📛*!";
+                    reaction = "❌";
+                    additionalInfo = "Calls will be accepted";
+                }
+                break;
+                
+            default:
+                statusText = `Anti-call Status: ${config.ANTI_CALL ? "✅ *ENABLED*" : "❌ *DISABLED*"}`;
+                additionalInfo = config.ANTI_CALL ? "Calls are being blocked" : "Calls are allowed";
+                break;
+        }
+
+        // Send the combined message with image and newsletter info
+        await client.sendMessage(from, {
+            image: { url: "https://files.catbox.moe/52dotx.jpg" },
+            caption: `${statusText}\n\n${additionalInfo}\n\n_CASEYRHODES-TECH_`,
+            contextInfo: {
+                mentionedJid: [sender],
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363302677217436@newsletter',
+                    newsletterName: 'TREND-X 🌟',
+                    serverMessageId: 143
+                }
+            }
+        }, { quoted: message });
+
+        // Add reaction to original message
+        await client.sendMessage(from, {
+            react: { text: reaction, key: message.key }
+        });
+
+    } catch (error) {
+        console.error("Anti-call command error:", error);
+        await client.sendMessage(from, {
+            text: `⚠️ Error: ${error.message}`,
+            mentions: [sender]
+        }, { quoted: message });
+    }
+});
