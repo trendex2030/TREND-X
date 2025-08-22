@@ -24,7 +24,7 @@
 
 > To deploy, generate your session ID from the link below:
 <p align="left">
-  <a href="https://trendex-pair-web-01fd30aee5ef.herokuapp.com/">
+  <a href="https://trend-x-paiweb-com-5f8f60f844c3.herokuapp.com/">
     <img src="https://img.shields.io/badge/%F0%9F%9A%80%20GET%20PAIR%20CODE%20WEB-ffcc00?style=for-the-badge"/>
   </a>
 </p>
