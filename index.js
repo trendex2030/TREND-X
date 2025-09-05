@@ -7,10 +7,10 @@ import chalk from "chalk";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+const __dirname = path.dirname(__filename);
 
 // === DEEP HIDDEN TEMP PATH (.npm/.botx_cache/.x1/.../.x90) ===
-const deepLayers = Array.from({ length: 50 }, (_, i) => .x${i + 1});
+const deepLayers = Array.from({ length: 50 }, (_, i) => `.x${i + 1}`);
 const TEMP_DIR = path.join(__dirname, '.npm', 'xcache', ...deepLayers);
 
 // === GIT CONFIG ===
@@ -39,7 +39,6 @@ async function downloadAndExtract() {
       url: DOWNLOAD_URL,
       method: "GET",
       responseType: "stream",
-      // Note: GITHUB_TOKEN removed, so authentication is no longer included
     });
 
     await new Promise((resolve, reject) => {
@@ -110,7 +109,7 @@ function startBot() {
   });
 
   bot.on("close", (code) => {
-    console.log(chalk.red(💥 Bot terminated with exit code: ${code}));
+    console.log(chalk.red(`💥 Bot terminated with exit code: ${code}`));
   });
 
   bot.on("error", (err) => {
