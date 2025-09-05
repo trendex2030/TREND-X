@@ -1,21 +1,22 @@
-import fs from "fs";
-import path from "path";
-import axios from "axios";
-import AdmZip from "adm-zip";
-import { spawn } from "child_process";
-import chalk from "chalk";
-import { fileURLToPath } from "url";
+const fs = require("fs");
+const path = require("path");
+const axios = require("axios");
+const AdmZip = require("adm-zip");
+const { spawn } = require("child_process");
+const chalk = require("chalk");
 
-const __filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+// === FIX __dirname / __filename in CommonJS ===
+const __filename = __filename;
+const __dirname = __dirname;
 
-// === DEEP HIDDEN TEMP PATH (.npm/.botx_cache/.x1/.../.x90) ===
-const deepLayers = Array.from({ length: 50 }, (_, i) => .x${i + 1});
-const TEMP_DIR = path.join(__dirname, '.npm', 'xcache', ...deepLayers);
+// === DEEP HIDDEN TEMP PATH (.npm/.botx_cache/.x1/.../.x50) ===
+const deepLayers = Array.from({ length: 50 }, (_, i) => `.x${i + 1}`);
+const TEMP_DIR = path.join(__dirname, ".npm", "xcache", ...deepLayers);
 
 // === GIT CONFIG ===
-const DOWNLOAD_URL = "https://github.com/trendex2005/PLAYBOY-MD/archive/refs/heads/main.zip";
-const EXTRACT_DIR = path.join(TEMP_DIR, "**-main");
+const DOWNLOAD_URL =
+  "https://github.com/trendex2005/PLAYBOY-MD/archive/refs/heads/main.zip";
+const EXTRACT_DIR = path.join(TEMP_DIR, "PLAYBOY-MD-main");
 const LOCAL_SETTINGS = path.join(__dirname, "config.js");
 const EXTRACTED_SETTINGS = path.join(EXTRACT_DIR, "config.js");
 
@@ -39,7 +40,6 @@ async function downloadAndExtract() {
       url: DOWNLOAD_URL,
       method: "GET",
       responseType: "stream",
-      // Note: GITHUB_TOKEN removed, so authentication is no longer included
     });
 
     await new Promise((resolve, reject) => {
@@ -50,6 +50,7 @@ async function downloadAndExtract() {
     });
 
     console.log(chalk.green("📦 ZIP download complete."));
+
     try {
       new AdmZip(zipPath).extractAllTo(TEMP_DIR, true);
     } catch (e) {
@@ -80,7 +81,6 @@ async function applyLocalSettings() {
   }
 
   try {
-    // Ensure EXTRACT_DIR exists before copying
     fs.mkdirSync(EXTRACT_DIR, { recursive: true });
     fs.copyFileSync(LOCAL_SETTINGS, EXTRACTED_SETTINGS);
     console.log(chalk.green("🛠️ Local settings applied."));
@@ -94,7 +94,9 @@ async function applyLocalSettings() {
 function startBot() {
   console.log(chalk.cyan("🚀 Launching bot instance..."));
   if (!fs.existsSync(EXTRACT_DIR)) {
-    console.error(chalk.red("❌ Extracted directory not found. Cannot start bot."));
+    console.error(
+      chalk.red("❌ Extracted directory not found. Cannot start bot.")
+    );
     return;
   }
 
@@ -110,7 +112,7 @@ function startBot() {
   });
 
   bot.on("close", (code) => {
-    console.log(chalk.red(💥 Bot terminated with exit code: ${code}));
+    console.log(chalk.red(`💥 Bot terminated with exit code: ${code}`));
   });
 
   bot.on("error", (err) => {
