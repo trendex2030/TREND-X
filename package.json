@@ -6,6 +6,7 @@
   "scripts": {
     "start": "pm2-runtime index.js --name TREND-X"
   },
+    },
   "dependencies": {
     "@whiskeysockets/baileys": "git+https://gitlab.com/amilaKumara/baileys-pmd.git",
     "@adiwajshing/keyed-db": "^0.2.4",
