@@ -1,14 +1,12 @@
 {
   "name": "TREND-X",
-  "version": "3.0.0",
-  "description": "A WhatsApp Bot Created By trendex",
+  "version": "5.0.0",
+  "description": "A WhatsApp bot Created by TREND-X",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name TREND-X",
-    "stop": "pm2 stop TREND-X",
-    "restart": "pm2 restart TREND-X"
+    "start": "pm2-runtime index.js --name TREND-X"
   },
-    "dependencies": {
+  "dependencies": {
     "@whiskeysockets/baileys": "git+https://gitlab.com/amilaKumara/baileys-pmd.git",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@dark-yasiya/yt-dl.js": "1.0.5",
