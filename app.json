@@ -1,7 +1,7 @@
 {
   "name": "TREND-X",
-  "description": "An Advanced Whatsapp bot 🚀 built for fast automation, media tool, and smooth group management developed by trendex tech",
-  "logo": "https://files.catbox.moe/adymbp.jpg",
+  "description": "An Advanced Whatsapp bot 🚀 built for fast automation, media tool, and smooth group management developed by trendex",
+  "logo": "https://files.catbox.moe/j2h8dg.jpg",
   "keywords": ["TREND-X"],
   "success_url": "/",
 
@@ -91,7 +91,7 @@
     "OWNER_NUMBER": {
       "description": "put the owner number for bot.",
       "required": false,
-      "value": "254734939236"
+      "value": "254110081982"
 
     }, 
 
@@ -119,7 +119,7 @@
     "ANTI_BAD": {
       "description": "Make it true if you want bot auto delete bad words.",
       "required": false,
-      "value": "false"
+      "value": "true"
     },
 
    "MENTION_REPLY": {
@@ -131,7 +131,7 @@
     "MENU_IMAGE_URL": {
       "description": "add url for mention reply and menu if want.",
       "required": false,
-      "value": "https://files.catbox.moe/adymbp.jpg"
+      "value": "https://files.catbox.moe/j2h8dg.jpg"
     },
     
      "DESCRIPTION": {
@@ -143,7 +143,7 @@
       "DELETE_LINKS": {
       "description": "remove links from group automatically without removing member",
       "required": false,
-      "value": "false"
+      "value": "true"
     },
     
     "AUTO_RECORDING": {
@@ -179,7 +179,7 @@
     
     "ANTI_DEL_PATH": {
       "description": "change it to -same- if you want to resend deleted message in same chat othwise inbox",
-      "required": false,
+      "required": true,
       "value": "inbox"
     }, 
 
@@ -196,7 +196,7 @@
      },
     "ANTICALL": {
       "description": "Make it true if you want bot to block incoming calls.",
-      "required": false,
+      "required": true,
       "value": "true"
     },
     "READ_MESSAGE": {
