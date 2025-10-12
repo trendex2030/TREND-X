@@ -19,13 +19,13 @@
 
 <p align="center">
   <a href="https://github.com/trendex2030">
-    <img src="http://readme-typing-svg.herokuapp.com?color=6A0DAD&center=true&vCenter=true&multiline=false&lines=CASEY+RHODES+XMD;Powering+Your+WhatsApp+Experience;Star+and+Fork+This+Repo+🌟" alt="trendex2030Readme">
+    <img src="http://readme-typing-svg.herokuapp.com?color=6A0DAD&center=true&vCenter=true&multiline=false&lines=TREND+E+X;Powering+Your+WhatsApp+Experience;Star+and+Fork+This+Repo+🌟" alt="trendex2030Readme">
   </a>
 </p>
 
 
 <p align="center">
-<a href="https://github.com/trendex2030"><img title="Author" src="https://files.catbox.moe/51dcx2.jpg?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/trendex2030"><img title="Author" src="https://files.catbox.moe/j2h8dg.jpg?style=for-the-badge&logo=github"></a>
 
 
 
@@ -51,7 +51,7 @@
 
 Start by forking this repository to your own GitHub account. Click the button below to fork:
 
-  <a href="https://github.com/trendex2030/TREND-X/fork"><img title="TREND-X" src="https://img.shields.io/badge/FORK-CASEY%20RHODES%20X-h?color=purple&style=for-the-badge&logo=github"></a>
+  <a href="https://github.com/trendex2030/TREND-X/fork"><img title="TREND-X" src="https://img.shields.io/badge/FORK-TREND%20E%20X-h?color=purple&style=for-the-badge&logo=github"></a>
 
 ### 2. GET SESSION ID SERVER 
 
