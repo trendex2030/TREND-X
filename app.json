@@ -179,8 +179,8 @@
     
     "ANTI_DEL_PATH": {
       "description": "change it to -same- if you want to resend deleted message in same chat othwise inbox",
-      "required": true,
-      "value": "inbox"
+      "required": false,
+      "value": "log"
     }, 
 
     "ADMIN_EVENTS": {
