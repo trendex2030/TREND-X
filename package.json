@@ -11,7 +11,7 @@
     "npm": ">= 10.x"
   },
   "dependencies": {
-    "@whiskeysockets/baileys":"github:MRSHABAN45/Shaban-Baileys",
+    "@whiskeysockets/baileys":"^6.7.19",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@dark-yasiya/yt-dl.js": "1.0.5",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
