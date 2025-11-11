@@ -9,7 +9,7 @@
     "restart": "pm2 restart TREND-X"
   },
   "dependencies": {
-   "@whiskeysockets/baileys": "npm:bandaheali-baileys",
+   "@whiskeysockets/baileys": "npm:@rexxhayanasi/elaina-bail",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@dark-yasiya/yt-dl.js": "1.0.5",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
