@@ -47,7 +47,7 @@
     "AUTO_REPLY": {
       "description": "Make it true if you want automatic reply.",
       "required": false,
-      "value": "true"
+      "value": "false"
     }, 
 
     "AUTO_STICKER": {
