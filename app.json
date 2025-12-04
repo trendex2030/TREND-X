@@ -25,24 +25,14 @@
       "value": "."
     },
     
-    "MODE": {
-      "description": "select your bot work type public-private-inbox-group.",
-      "required": false,
-      "value": "public"
-      
-    },
-
+   
      "ANTI_DELETE": {
       "description": "set true for show deleted messages.",
       "required": false,
       "value": "true"  
     },
     
-    "ALWAYS_ONLINE": {
-      "description": "Make it true if want always online.",
-      "required": false,
-      "value": "true"  
-    },    
+    
    
     "AUTO_REPLY": {
       "description": "Make it true if you want automatic reply.",
