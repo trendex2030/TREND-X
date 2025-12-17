@@ -48,6 +48,7 @@
     "sqlite3": "^5.1.7",
     "vm": "^0.1.0",
     "api-dylux":"1.8.5",
+      "instagram-url-direct": "^1.0.12",
     "@mrnima/tiktok-downloader":"1.0.0",
     "@mrnima/facebook-downloader":"1.0.0",
     "mrnima-moviedl":"1.0.0"
