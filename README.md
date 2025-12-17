@@ -57,7 +57,7 @@ Start by forking this repository to your own GitHub account. Click the button be
 
 You will need a session ID to run TREND-X. Click the button below to obtain your session ID:
 
-<a href='https://trendexpair-2a35f5d842c3.herokuapp.com/pair' target="_blank">
+<a href='https://pair2-7b38defe82b1.herokuapp.com/pair' target="_blank">
   <img alt='Pairing Code' src='https://img.shields.io/badge/Get%20Session%20ID-purple?style=for-the-badge&logo=whatsapp&logoColor=white'/>
 </a>
 <br>
