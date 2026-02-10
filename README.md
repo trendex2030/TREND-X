@@ -12,7 +12,6 @@
 </p>
 
 
-# TRENDEX BOTZ INC.❤️
 
 [![Sponsor Trendex](https://img.shields.io/badge/Sponsor-trendex2030-important)](https://github.com/sponsors/trendex2030)
 
