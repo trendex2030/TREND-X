@@ -160,7 +160,7 @@ You will need a session ID to run TREND-X. Click the button below to obtain your
   
 <p align="center">
   
-[![JOIN WHATSAPP CHANNEL](https://raw.githubusercontent.com/Neeraj-x0/Neeraj-x0/main/photos/suddidina-join-whatsapp.png)](https://whatsapp.com/channel/0029Vb6b7ZdF6sn4Vmjf2X1O)
+[![JOIN WHATSAPP CHANNEL](https://raw.githubusercontent.com/Neeraj-x0/Neeraj-x0/main/photos/suddidina-join-whatsapp.png)](https://whatsapp.com/channel/0029Vb7IqJoB4hdSEd6guV0y)
 
 --------
 
