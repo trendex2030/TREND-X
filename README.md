@@ -121,14 +121,7 @@ You will need a session ID to run TREND-X. Click the button below to obtain your
   
 ---
 
-<h2 align="left">⚠️ Reminder</h2>
-<p align="center">
 
-- **Disclaimer:** This bot is not affiliated with `WhatsApp Inc.`. Use it at your own risk.
-- Misusing the bot may result in your `WhatsApp` account being banned. Note that you can only unban your account once.
-- I am not responsible for any bans or misuse of the bot. Please keep this warning in mind before proceeding.
-
----
 
 <h2 align="left">ℹ️ Notice</h2>
 <p align="center">
