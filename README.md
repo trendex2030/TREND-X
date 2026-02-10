@@ -123,9 +123,7 @@ You will need a session ID to run TREND-X. Click the button below to obtain your
 
 
 
-<h2 align="left">ℹ️ Notice</h2>
-<p align="center">
-  Not For Sale - If any plugin's code is obfuscated, you do not have permission to edit it in any form. Please remember to give credit if you are using or re-uploading my plugins/files. Wishing you a wonderful day ahead!</p>
+
 
 
 
