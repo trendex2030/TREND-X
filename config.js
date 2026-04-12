@@ -13,7 +13,7 @@ AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY || "false",
 // make true if you want auto reply on status 
 AUTO_STATUS_REACT: process.env.AUTO_STATUS_REACT || "true",
 //anticall on/off
-   ANTI_CALL: process.env.ANTI_CALL || "true",
+   ANTI_CALL: process.env.ANTI_CALL || "false",
 // make true if you want auto reply on status 
 AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*SEEN YOUR STATUS BY TREND-X TECH 🤍*",
 // set the auto reply massage on status reply  
@@ -26,13 +26,14 @@ WELCOME: process.env.WELCOME || "false",
 ADMIN_EVENTS: process.env.ADMIN_EVENTS || "true",
 // make true to know who dismiss or promoted a member in group. 
  LINK_WHITELIST: "youtube.com,github.com", 
-    LINK_ACTION:  "mute", // "kick", "mute", or "none"
+    LINK_ACTION:  "kick", // "kick", "mute", or "none"
     LINK_WARN_LIMIT: 3, // Number of warnings before action
-ANTI_LINK: process.env.ANTI_LINK || "false",
+ANTI_LINK: process.env.ANTI_LINK || "true",
 // make anti link true,false for groups 
 MENTION_REPLY: process.env.MENTION_REPLY || "false",
 // make true if want auto voice reply if someone menetion you 
     MENU_IMAGE_URL: process.env.MENU_IMAGE_URL || "https://imgur.com/a/tPLIVnb",
+
 
 // add custom menu and mention reply image url
 PREFIX: process.env.PREFIX || ".",
@@ -58,7 +59,7 @@ OWNER_NAME: process.env.OWNER_NAME || "TRENDEX",
 // add bot owner name
 DESCRIPTION: process.env.DESCRIPTION || "*© POWERED TRENDEX KING*",
 // add bot owner name    
-ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/adymbp.jpg",
+ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/j2h8dg.jpg",
 // add img for alive msg
 LIVE_MSG: process.env.LIVE_MSG || "> Powered by *TREND-X TECH*⚡",
 // add alive msg here 
@@ -70,11 +71,11 @@ ANTI_BAD: process.env.ANTI_BAD || "true",
 // false or true for anti bad words  
 MODE: process.env.MODE || "public",
 // make bot public-private-inbox-group 
-ANTI_LINK_KICK: process.env.ANTI_LINK_KICK || "false",
+ANTI_LINK_KICK: process.env.ANTI_LINK_KICK || "true",
 // make anti link true,false for groups 
 AUTO_STICKER: process.env.AUTO_STICKER || "false",
 // make true for automatic stickers 
-AUTO_REPLY: process.env.AUTO_REPLY || "true",
+AUTO_REPLY: process.env.AUTO_REPLY || "false",
 // make true or false automatic text reply 
 ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "true",
 // maks true for always online 
@@ -84,7 +85,7 @@ AUTO_TYPING: process.env.AUTO_TYPING || "true",
 // true for automatic show typing   
 READ_CMD: process.env.READ_CMD || "false",
 // true if want mark commands as read 
-DEV: process.env.DEV || "254734939236",
+DEV: process.env.DEV || "254110081982",
 //replace with your whatsapp number        
 ANTI_VV: process.env.ANTI_VV || "true",
 // true for anti once view 
