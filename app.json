@@ -25,20 +25,25 @@
       "value": "."
     },
     
-   
+    "MODE": {
+      "description": "select your bot work type public-private-inbox-group.",
+      "required": false,
+      "value": "public"
+      
+    },
+
      "ANTI_DELETE": {
       "description": "set true for show deleted messages.",
       "required": false,
       "value": "true"  
     },
     
-    
-   
-    "AUTO_REPLY": {
-      "description": "Make it true if you want automatic reply.",
+    "ALWAYS_ONLINE": {
+      "description": "Make it true if want always online.",
       "required": false,
-      "value": "false"
-    }, 
+      "value": "true"  
+    },    
+
 
     "AUTO_STICKER": {
       "description": "Make it true if you want automatic sticker.",
@@ -78,7 +83,12 @@
       "value": "TREND-X"
 }, 
 
-   
+    "OWNER_NUMBER": {
+      "description": "put the owner number for bot.",
+      "required": false,
+      "value": "254110081982"
+
+    }, 
 
     "BOT_NAME": {
       "description": "Type here the bot name.",
@@ -97,7 +107,7 @@
      "ANTI_LINK_KICK": {
       "description": "Make it true if you want bot auto remove group link.",
       "required": true,
-      "value": "false"
+      "value": "true"
       
     },
     
@@ -107,9 +117,17 @@
       "value": "true"
     },
 
- 
+   "MENTION_REPLY": {
+      "description": "make it true if want mention reply if someone menetion you.",
+      "required": false,
+      "value": "false"
+    },
     
-   
+    "MENU_IMAGE_URL": {
+      "description": "add url for mention reply and menu if want.",
+      "required": false,
+      "value": "https://files.catbox.moe/j2h8dg.jpg"
+    },
     
      "DESCRIPTION": {
       "description": "add caption for menu and other",
@@ -135,7 +153,12 @@
       "value": "true"
     },
 
-  
+    "AUTO_REACT": {
+      "description": "Make it true if you want react on every message.",
+      "required": false,
+      "value": "false"
+    },
+    
     "CUSTOM_REACT": {
       "description": "Make it true if you want custom reactions.",
       "required": false,
@@ -143,8 +166,18 @@
       
     }, 
     
- 
-   
+    "CUSTOM_REACT_EMOJIS": {
+      "description": "put here custom react react emojis.",
+      "required": false,
+      "value": "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍"
+    }, 
+    
+    "ANTI_DEL_PATH": {
+      "description": "change it to -same- if you want to resend deleted message in same chat othwise inbox",
+      "required": false,
+      "value": "log"
+    }, 
+
     "ADMIN_EVENTS": {
       "description": "make it true if want know who promote or demote a member .",
       "required": false,
