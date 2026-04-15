@@ -166,11 +166,7 @@
       
     }, 
     
-    "CUSTOM_REACT_EMOJIS": {
-      "description": "put here custom react react emojis.",
-      "required": false,
-      "value": "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍"
-    }, 
+
     
     "ANTI_DEL_PATH": {
       "description": "change it to -same- if you want to resend deleted message in same chat othwise inbox",
@@ -181,7 +177,7 @@
     "ADMIN_EVENTS": {
       "description": "make it true if want know who promote or demote a member .",
       "required": false,
-      "value": "true"
+      "value": "false"
     },
 
     "WELCOME": {
