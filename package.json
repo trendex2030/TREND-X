@@ -19,6 +19,7 @@
     "adm-zip": "^0.5.16",
     "api-dylux": "1.8.5",
     "axios": "^1.2.5",
+    "ruhend-scraper": "^9.0.8",
     "btch-downloader": "^2.2.9",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.12",
