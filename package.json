@@ -19,6 +19,7 @@
     "@whiskeysockets/baileys": "npm:hunter-baileys@2.1.1",
     "adm-zip": "^0.5.16",
     "ruhend-scraper": "^9.0.8",
+   "@renpwn/fb-downloader": "latest",
     "api-dylux": "1.8.5",
     "axios": "^1.2.5",
     "btch-downloader": "^2.2.9",
