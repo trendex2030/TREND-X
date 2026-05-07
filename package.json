@@ -1,9 +1,9 @@
 {
-  "name": "HUNTERXMD_PRO",
+  "name": "TREND-X",
   "version": "4.5.0",
   "description": "A WhatsApp Bot Created by GuruTech",
   "main": "index.cjs",
-  "type": "commonjs",
+
   "scripts": {
     "start": "node index.js",
     "stop": "pm2 stop TREND-X",
