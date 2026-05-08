@@ -2,7 +2,7 @@
   "name": "TREND-X",
   "version": "4.5.0",
   "description": "A WhatsApp Bot Created by GuruTech",
-  "main": "index.cjs",
+  "main": "index.js",
 
   "scripts": {
     "start": "node index.js",
